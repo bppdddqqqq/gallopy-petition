@@ -22,7 +22,7 @@ const AboutPage = ({ data }) => {
   const { frontmatter, body, excerpt } = mdx
 
 	return (
-		<Layout className="page">
+		<Layout>
 			<Seo
 				title={frontmatter.title}
 				description={excerpt}
