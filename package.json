@@ -1,0 +1,61 @@
+{
+  "name": "@stackrole/gatsby-starter-foundation",
+  "description": "A starter to launch your blazing fast personal website and a blog, Built with Gatsby and Netlify CMS. Made with ❤ by Stackrole",
+  "version": "1.0.0",
+  "author": "Stackrole <stackrole@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stackrole/gatsby-starter-foundation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stackrole/gatsby-starter-foundation/issues"
+  },
+  "scripts": {
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "crypto-js": "^4.0.0",
+    "gatsby": "^3.2.1",
+    "gatsby-background-image": "^1.5.0",
+    "gatsby-image": "^3.2.0",
+    "gatsby-plugin-google-analytics": "^3.2.0",
+    "gatsby-plugin-manifest": "^3.2.0",
+    "gatsby-plugin-mdx": "^2.2.0",
+    "gatsby-plugin-netlify-cache": "^1.2.0",
+    "gatsby-plugin-offline": "^4.2.0",
+    "gatsby-plugin-optimize-svgs": "^1.0.5",
+    "gatsby-plugin-purgecss": "^6.0.0",
+    "gatsby-plugin-react-helmet": "^4.2.0",
+    "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-remove-serviceworker": "^1.0.0",
+    "gatsby-plugin-sass": "^4.2.0",
+    "gatsby-plugin-sharp": "^3.2.0",
+    "gatsby-plugin-theme-ui": "^0.6.0",
+    "gatsby-remark-images": "^4.2.0",
+    "gatsby-source-filesystem": "^3.2.0",
+    "gatsby-transformer-remark": "^3.2.0",
+    "gatsby-transformer-sharp": "^3.2.0",
+    "node-sass": "^5.0.0",
+    "prismjs": "^1.23.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.2.0",
+    "theme-ui": "^0.6.1"
+  },
+  "devDependencies": {
+    "acorn": "^8.1.0",
+    "prettier": "2.2.1",
+    "react-refresh": "^0.10.0",
+    "redux": "^4.0.5",
+    "typescript": "^4.2.3"
+  }
+}

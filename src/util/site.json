@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "title": "TEDxMasarykUniversity",
+    "titleTemplate": "%s",
+    "description": "Web oficiální akce TEDxMasarykUniversity 2021",
+    "siteUrl": "https://tedxmasarykuniversity.cz",
+    "image": "/assets/TEDx_Masaryk_University.png",
+    "iconimage": "/assets/thex.png"
+  },
+  "ga": "UA-32902886-1"
+}
