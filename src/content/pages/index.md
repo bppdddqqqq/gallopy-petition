@@ -3,7 +3,7 @@ template: index-page
 slug: /
 title: Rekt.su
 tagline: Based developer from Brno 🇨🇿
-featuredImage: ../../../static/assets/masaryk-1580x790-1249415930.jpg
+featuredImage: ../../../static/assets/20220211_000726.jpg
 cta:
   ctaText: Learn more
   ctaLink: /whoami
