@@ -5,7 +5,7 @@ const Logo = function () {
   return (
     <div className="site-logo flex-row">
       <div className="logo-anim">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores inventore libero optio enim quas totam possimus labore architecto voluptates accusamus ex in aspernatur earum vel quae, aliquid harum eos ad.
+        <p>This place had over 2k people in it at one point. Now it's just stupid gen z memes and random women. There's a reason so many people left. I'm leaving too because this place is a literal waste of time. I'd say have a good one but I literally couldn't care less about any of you. Bye.
         </p>
       </div>
       <Link className="ted-icon center" to="/"><p>rekt.su</p></Link>

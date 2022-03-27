@@ -202,6 +202,9 @@ body {
 		animation-duration: 5s;
 		animation-name: 'slide';
 		animation-iteration-count: infinite;
+		padding: 0;
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 }
 .logo-anim::before {
