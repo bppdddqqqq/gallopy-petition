@@ -1,11 +1,11 @@
 {
   "meta": {
-    "title": "TEDxMasarykUniversity",
+    "title": "Rekt.su",
     "titleTemplate": "%s",
-    "description": "Web oficiální akce TEDxMasarykUniversity 2021",
-    "siteUrl": "https://tedxmasarykuniversity.cz",
-    "image": "/assets/TEDx_Masaryk_University.png",
+    "description": "48's website",
+    "siteUrl": "https://rekt.su",
+    "image": "/assets/thex.png",
     "iconimage": "/assets/thex.png"
   },
-  "ga": "UA-32902886-1"
+  "ga": ""
 }
