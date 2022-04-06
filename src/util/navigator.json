@@ -1,0 +1,12 @@
+{
+  "menuItems": [
+    {
+      "path": "/",
+      "title": "Home"
+    },
+    {
+      "path": "/whoami",
+      "title": "Who am I"
+    }
+  ]
+}

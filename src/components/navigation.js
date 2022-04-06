@@ -4,20 +4,9 @@ import React from "react"
 import { Link } from "gatsby"
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import Theme from "../components/theme"
-
-const MenuItems = [
-  {
-    path: "/",
-    title: "Home"
-  },
-  {
-    path: "/whoami",
-    title: "Who am I"
-  }
-]
+import navigatorJson from '../util/navigator.json'
 
 const ListLink = (props) => (<li><Link to={props.to}>{props.children}</Link></li>)
-
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -33,7 +22,7 @@ class Navigation extends React.Component {
   }
 
   render () {
-    const listMenuItems = MenuItems.map((menuItem, index) => 
+    const listMenuItems = navigatorJson.menuItems.map((menuItem, index) => 
       <ListLink key={index} to={menuItem.path}>{menuItem.title}</ListLink>
     )
     return (
