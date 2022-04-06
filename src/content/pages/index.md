@@ -22,6 +22,6 @@ Welcome to my little website with weird things and stuffs. You can find practica
 
 ## Notice board
 
-I am currently seeking random topics to discuss about on my prepared blog, if you find something interesting to research or talk about. HMU, either on Discord or via Email, you know where to __find it__ 
+I am currently seeking random topics to discuss about on my prepared blog, if you find something interesting to research or talk about. HMU via Email, you know where to __find me__ 
 
-`~ 48`
+`~ someone#404`
