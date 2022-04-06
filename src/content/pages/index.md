@@ -16,10 +16,8 @@ Welcome to my little website with weird things and stuffs. You can find practica
 - researching bachelor thesis at Crocs lab
 - writing C++ code at PB161
 - writing C# code at PV179
-- writing Flutter code at my workplace
 - writing React code on this webpage
 - writing blog posts to make the web brimming with content
-- working as receptionist
 - taking pictures
 
 ## Notice board
