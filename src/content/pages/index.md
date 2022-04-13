@@ -1,6 +1,6 @@
 ---
 template: index-page
-slug: /
+slug: /2
 title: Rekt.su
 tagline: Based developer from Brno 🇨🇿
 featuredImage: ../../../static/assets/20220211_000726.jpg
