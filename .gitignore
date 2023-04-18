@@ -71,4 +71,3 @@ yarn-error.log
 .direnv/
 flake.lock
 shell.nix
-flake.nix
