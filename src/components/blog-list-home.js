@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
 import { Link, StaticQuery, graphql } from "gatsby"
 import { RiArrowRightSLine } from "react-icons/ri"
 
@@ -38,20 +37,21 @@ export default function BlogListHome() {
                 frontmatter {
                   slug
                   title
-                  featuredImage {
-                    childImageSharp {
-                      fluid(maxWidth: 540, maxHeight: 360, quality: 80) {
-                        ...GatsbyImageSharpFluid
-                        ...GatsbyImageSharpFluidLimitPresentationSize
-                      }
-                    }
-                  }
+                  
                 }
               }
             }
           }
         }`
       }
+      /*
+childImageSharp {
+                      fluid(maxWidth: 540, maxHeight: 360, quality: 80) {
+                        ...GatsbyImageSharpFluid
+                        ...GatsbyImageSharpFluidLimitPresentationSize
+                      }
+                    }
+      */
 
       render={ data => {
           const posts = data.allMdx.edges

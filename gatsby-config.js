@@ -47,7 +47,13 @@ module.exports = {
     `gatsby-plugin-sharp`,
     'gatsby-plugin-postcss',
     `gatsby-plugin-sass`,
-    'gatsby-plugin-theme-ui',
+    {
+      resolve: 'gatsby-background-image-es5',
+      options: {
+        // add your own characters to escape, replacing the default ':/'
+        specialChars: '/:',
+      },
+    },
     // {
     //   resolve: 'gatsby-plugin-react-svg',
     //   options: {

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 
 import Navigation from "./navigation";
@@ -18,7 +17,7 @@ query LayoutQuery {
 }
 `
 
-const Layout = ({children, className, props = {}}) => {
+const Layout = ({children, className = "container mx-auto my-0 text-left min-h-[80vh]", props = {}}) => {
 
   const { site } = useStaticQuery(query)
   const { siteTitle } = site.siteMetadata
@@ -28,7 +27,7 @@ const Layout = ({children, className, props = {}}) => {
     <div className="primary-container">
       { pre }
       <Navigation />
-      <main className={"container mx-auto text-left my-0 min-h-[80vh] " + className}>
+      <main className={className}>
         {children}
       </main>
       <Footer/>

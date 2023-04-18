@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+import React from 'react'
 import AES from "crypto-js/aes"
 import Enc from "crypto-js/enc-utf8"
 import { Component } from "react"

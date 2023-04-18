@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-import React from "react"
+import React from 'react'
 import { Link } from "gatsby"
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import navigatorJson from '../util/navigator.json'
@@ -32,7 +30,7 @@ class Navigation extends React.Component {
       >
         <div className="flex flex-row max-lg:justify-between max-lg:w-full">
           <div className="flex flex-row my-auto font-bold">
-            <Link className="inline justify-center pl-1 mx-0 my-auto font-sans text-2xl font-bold text-white" to="/"><p>Scala za Scalu</p></Link>
+            <Link className="inline justify-center pl-1 mx-0 my-auto font-sans text-2xl font-bold text-white" to="/"><p>Scala pro Scalu</p></Link>
           </div>
           <nav id="nav" className="my-auto max-lg:ml-auto">
             <button onClick={this.handleToggleClick} className={"hidden text-2xl bg-none border-none white max-lg:flex group peer" + (this.state.showMenu ? " is-active" : "")}>
