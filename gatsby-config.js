@@ -4,12 +4,12 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-const settings = require("./src/util/site.json")
-const path = require('path')
-const process = require('process')
+// const settings = require("./src/util/site.json")
+// const path = require('path')
+// const process = require('process')
 
 module.exports = {
-  siteMetadata: settings.meta,
+  // siteMetadata: settings.meta,
   plugins: [
     {
       resolve: `gatsby-plugin-mdx`,
@@ -45,30 +45,28 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    'gatsby-plugin-postcss',
     `gatsby-plugin-sass`,
-    `gatsby-plugin-react-helmet`,
     'gatsby-plugin-theme-ui',
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /assets/
-        }
-      }
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `TEDxMasarykUniversity`,
-        short_name: `TEDxMasarykUniversity`,
-        start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#E62B1E`,
-        display: `standalone`,
-        icon: "static" + settings.meta.iconimage,
-      },
-    },
-    `gatsby-plugin-remove-serviceworker`,
-    'gatsby-plugin-optimize-svgs',
+    // {
+    //   resolve: 'gatsby-plugin-react-svg',
+    //   options: {
+    //     rule: {
+    //       include: /assets/
+    //     }
+    //   }
+    // },
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `TEDxMasarykUniversity`,
+    //     short_name: `TEDxMasarykUniversity`,
+    //     start_url: `/`,
+    //     background_color: `#f7f0eb`,
+    //     theme_color: `#E62B1E`,
+    //     display: `standalone`,
+    //     icon: "static" + settings.meta.iconimage,
+    //   },
+    // },
   ],
 }

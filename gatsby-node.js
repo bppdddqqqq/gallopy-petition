@@ -6,14 +6,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     {
       allMdx {
-        edges {
-          node {
-            id
-            frontmatter {
-              slug
-              template
-              title
-            }
+        nodes {
+          id
+          frontmatter {
+            slug
+            template
+            title
+          }
+          internal {
+            contentFilePath 
           }
         }
       }
@@ -27,19 +28,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   // Create markdown pages
-  const posts = result.data.allMdx.edges
+  const posts = result.data.allMdx.nodes
   let blogPostsCount = 0
 
   posts.forEach((post, index) => {
-    const id = post.node.id
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+    const id = post.id
+    const previous = index === posts.length - 1 ? null : posts[index + 1]
+    const next = index === 0 ? null : posts[index - 1]
 
+    const url = path.resolve(`src/templates/${String(post.frontmatter.template)}.js`)
     createPage({
-      path: post.node.frontmatter.slug,
-      component: path.resolve(
-        `src/templates/${String(post.node.frontmatter.template)}.js`
-      ),
+      path: post.frontmatter.slug,
+      component: `${url}?__contentFilePath=${post.internal.contentFilePath}`,
       // additional data can be passed via context
       context: {
         id,
@@ -49,7 +49,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
 
     // Count blog posts.
-    if (post.node.frontmatter.template === 'blog-post') {
+    if (post.frontmatter.template === 'blog-post') {
       blogPostsCount++
     }
   })
@@ -58,10 +58,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const postsPerPage = 15
   const numPages = Math.ceil(blogPostsCount / postsPerPage)
 
+  const url = path.resolve(`./src/templates/blog-list.js`)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-      component: path.resolve(`./src/templates/blog-list.js`),
+      component: `${url}?__contentFilePath=${post.internal.contentFilePath}`,
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,

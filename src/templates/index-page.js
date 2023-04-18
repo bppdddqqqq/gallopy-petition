@@ -6,27 +6,10 @@ import { RiArrowRightSLine } from "react-icons/ri"
 import {
   RiFacebookBoxFill,
   RiTwitterFill,
-  RiLinkedinBoxFill,
   RiYoutubeFill,
   RiInstagramFill,
-  RiRssFill,
-  RiGithubFill,
-  RiTelegramFill,
-  RiPinterestFill,
-  RiSnapchatFill,
-  RiSkypeFill,
-  RiDribbbleFill,
-  RiMediumFill,
-  RiBehanceFill,  
 } from "react-icons/ri"
-import {
-  SiTed
-} from "react-icons/si"
-import { FaWordpress, FaVk } from "react-icons/fa"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-
 import Layout from "../components/layout"
-import Seo from "../components/seo"
 import Icons from "../util/socialmedia.json"
 
 import { useColorMode } from "theme-ui"
@@ -61,7 +44,7 @@ export const pageQuery = graphql`
   }
 `
 
-const HomePage = ({ data }) => {
+const HomePage = ({ data, children }) => {
   const { mdx } = data // data.mdx holds your post data
   const { frontmatter, body, excerpt } = mdx
   const Image = frontmatter.featuredImage
@@ -84,13 +67,6 @@ const HomePage = ({ data }) => {
         ) : (
           ""
         )}
-        {icons.icon === "linkedin" ? (
-          <Link to={icons.url} target="_blank">
-            <RiLinkedinBoxFill />
-          </Link>
-        ) : (
-          ""
-        )}
         {icons.icon === "youtube" ? (
           <Link to={icons.url} target="_blank">
             <RiYoutubeFill />
@@ -105,106 +81,21 @@ const HomePage = ({ data }) => {
         ) : (
           ""
         )}
-        {icons.icon === "rss" ? (
-          <Link to={icons.url} target="_blank">
-            <RiRssFill />
-          </Link>
-        ) : (
-          ""
-        )}
-        {icons.icon === "github" ? (
-          <Link to={icons.url} target="_blank">
-            <RiGithubFill />
-          </Link>
-        ) : (
-          ""
-        )}
-        {icons.icon === "telegram" ? (
-          <Link to={icons.url} target="_blank">
-            <RiTelegramFill />
-          </Link>
-        ) : (
-          ""
-        )}
-        {icons.icon === "pinterest" ? (
-          <Link to={icons.url} target="_blank">
-            <RiPinterestFill />
-          </Link>
-        ) : (
-          ""
-        )}
-        {icons.icon === "snapchat" ? (
-          <Link to={icons.url} target="_blank">
-            <RiSnapchatFill />
-          </Link>
-        ) : (
-          ""
-        )}
-        {icons.icon === "skype" ? (
-          <Link to={icons.url} target="_blank">
-            <RiSkypeFill />
-          </Link>
-        ) : (
-          ""
-        )}
-        {icons.icon === "wordpress" ? (
-          <Link to={icons.url} target="_blank">
-            <FaWordpress />
-          </Link>
-        ) : (
-          ""
-        )}
-        {icons.icon === "dribbble" ? (
-          <Link to={icons.url} target="_blank">
-            <RiDribbbleFill />
-          </Link>
-        ) : (
-          ""
-        )}
-        {icons.icon === "medium" ? (
-          <Link to={icons.url} target="_blank">
-            <RiMediumFill />
-          </Link>
-        ) : (
-          ""
-        )}
-        {icons.icon === "behance" ? (
-          <Link to={icons.url} target="_blank">
-            <RiBehanceFill />
-          </Link>
-        ) : (
-          ""
-        )}
-        {icons.icon === "vk" ? (
-          <Link to={icons.url} target="_blank">
-            <FaVk />
-          </Link>
-        ) : (
-          ""
-        )}
-        {icons.icon === "ted" ? (
-          <Link to={icons.url} target="_blank">
-            <SiTed />
-          </Link>
-        ) : (
-          ""
-        )}
       </div>
     )
   })
   const [colorMode] = useColorMode()
   return (
     <Layout>
-      <Seo title={frontmatter.title} description={excerpt} />
-      <div className="home-banner grids col-1 sm-2">
+      <div className="grid grid-cols-1 gap-4 items-center px-8 py-4 md:py-2 md:px-16 md:grid-cols-2">
         <div>
-          <div className="title fullize">
+          <div className="m-0 text-3xl font-bold md:text-5xl">
             <h1 className={colorMode === "default" ? "" : "white"}> 
             Hi. 👋
             </h1>
           </div>
           <p
-            className="tagline"
+            className="mt-1"
             sx={{
               color: "muted",
             }}
@@ -216,14 +107,14 @@ const HomePage = ({ data }) => {
           </p>
           <Link
             to={frontmatter.cta.ctaLink}
-            className="button"
+            className="mt-8 button"
           >
             {frontmatter.cta.ctaText}
             <span className="icon -right">
               <RiArrowRightSLine />
             </span>
           </Link>
-          <div className="social-icons" sx={indexStyles.socialIcons}>
+          <div className="flex gap-4 mt-6 text-4xl md:mt-3" sx={indexStyles.socialIcons}>
             {sIcons}
           </div>
         </div>
@@ -232,17 +123,15 @@ const HomePage = ({ data }) => {
             <Img
               fluid={Image}
               alt={frontmatter.title + " - Featured image"}
-              className="featured-image"
+              className="rounded-md"
             />
           ) : (
             ""
           )}
         </div>
       </div>
-      <div className="">
-        <div>
-          <MDXRenderer className="description">{body}</MDXRenderer>
-        </div>
+      <div className="mb-8 md-styling">
+        {children}
       </div>
     </Layout>
   )

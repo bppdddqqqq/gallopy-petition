@@ -1,9 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
-import Seo from "../components/seo"
 
 export const pageQuery = graphql`
   query AboutQuery($id: String!){
@@ -17,19 +15,15 @@ export const pageQuery = graphql`
     }
   }
 `
-const AboutPage = ({ data }) => {
+const AboutPage = ({ data, children }) => {
 	const { mdx } = data // data.mdx holds your post data
-  const { frontmatter, body, excerpt } = mdx
+  const { frontmatter, body } = mdx
 
 	return (
 		<Layout>
-			<Seo
-				title={frontmatter.title}
-				description={excerpt}
-			/>
-			<div className="wrapper">
+			<div className="mx-auto my-0 max-w-3xl">
 				<h1>{frontmatter.title}</h1>
-				<MDXRenderer article>{body}</MDXRenderer>
+				{children}
 			</div>
 		</Layout>
 	)

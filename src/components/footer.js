@@ -3,13 +3,10 @@ import { jsx } from 'theme-ui'
 
 const Footer = () => (
   <footer 
-    className="site-footer"
-    sx={{
-      bg: 'secondary'
-    }}
+    className="flex items-center py-3 bg-black text-1xl"
   >
-    <div className="container">
-      <p>2022 - rekt.su 👋</p>
+    <div className="mx-auto">
+      <p>👋</p>
     </div>
   </footer>
 )
