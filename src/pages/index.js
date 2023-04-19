@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import IndexText from '../content/index/maintext.mdx'
+import OpenLetter from '../content/index/openletter.mdx'
 import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image-es5'
 import Hero from '../components/hero'
@@ -32,11 +33,23 @@ export const pageQuery = graphql`
         )
       }
     }
+    gallery1: file(relativePath: { eq: "sca30.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          width: 480
+          height: 320
+          quality: 85
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
+      }
+    }
   }
 `
 
 const HomePage = ({ data }) => {
-  const { placeholderImage} = data
+  const { placeholderImage } = data
   const image = getImage(placeholderImage)
   const bg = convertToBgImage(image)
   console.log(data)
@@ -48,7 +61,7 @@ const HomePage = ({ data }) => {
           {...bg}
           preserveStackingContext
           className="w-100">
-            <Hero />
+          <Hero />
         </BackgroundImage>
       </div>
       <div className="container flex gap-4 justify-between items-center mx-auto my-10 mt-12">
@@ -70,7 +83,7 @@ const HomePage = ({ data }) => {
           />
         </div>
       </div>
-      <div className="container grid grid-cols-4 gap-4 mx-auto mt-2 mb-10">
+      <div className="container grid grid-cols-4 gap-4 mx-auto mt-12">
         <div>
           <h1>Issue 1</h1>
           <p>Excepturi tempore officiis cumque ad voluptatem eveniet vero.</p>
@@ -87,6 +100,23 @@ const HomePage = ({ data }) => {
           <h1>Issue 1</h1>
           <p>Excepturi tempore officiis cumque ad voluptatem eveniet vero.</p>
         </div>
+      </div>
+      <div className="grid grid-cols-5 gap-2 my-12 bg-black">
+        {
+          Array.from({ length: 5 }, (_, i) => (<div key={i} >
+            <GatsbyImage
+              className="h-48"
+              image={data.gallery1.childImageSharp.gatsbyImageData}
+              alt="Ditto"
+            />
+          </div>))
+        }
+      </div>
+      <div className="container mx-auto mb-12 max-w-2xl">
+        <OpenLetter />
+      </div>
+      <div className="container mx-auto mb-12">
+
       </div>
     </Layout>
   )

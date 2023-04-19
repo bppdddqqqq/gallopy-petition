@@ -18,18 +18,18 @@ const Hero = () => (
       </p>
       <Link
         to="https://google.com"
-        className="button"
+        className="font-bold button"
       >
-        Sign it
+        Podepsat
         <span className="icon -right">
           <RiArrowRightSLine />
         </span>
       </Link>
       <div className="absolute right-0 left-0 -bottom-5">
         <div className="flex justify-center">
-          <div className="overflow-hidden rounded-full xl:min-w-xl lg:min-w-lg md:min-w-md bg-neutral-200 dark:bg-neutral-600">
+          <div className="overflow-hidden w-screen md:w-fit md:rounded-full xl:min-w-xl lg:min-w-lg md:min-w-md bg-neutral-200 dark:bg-neutral-600">
             <div
-              className="p-0.5 py-4 text-xs font-medium leading-none text-center text-white bg-blue-600"
+              className="p-0.5 py-3 font-bold leading-none text-center text-white bg-blue-600 text-md"
               style={{width: "52%"}}>
               Podepsáno 652
             </div>

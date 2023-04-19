@@ -21,4 +21,17 @@
   .gapped-image > * + * {
     @apply mt-2;
   }
+
+  h1 + p {
+    @apply mt-4;
+  }
+  h2 + p {
+    @apply mt-2;
+  }
+  h3 + p {
+    @apply mt-2;
+  }
+  p + p {
+    @apply mt-1;
+  }
 }

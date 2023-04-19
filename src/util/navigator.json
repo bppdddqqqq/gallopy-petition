@@ -5,8 +5,12 @@
       "title": "Home"
     },
     {
-      "path": "/whoami",
-      "title": "Who am I"
+      "path": "/iniciativa",
+      "title": "Popis iniciativy"
+    },
+    {
+      "path": "/aktuality",
+      "title": "Aktuality"
     }
   ]
 }

@@ -10,6 +10,10 @@ module.exports = {
     "./src/pages/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    container: {
+      padding: '1rem',
+      center: true,
+    },
     screens: {
       sm: "480px",
       md: "768px",
@@ -30,10 +34,10 @@ module.exports = {
         xl: "1440px",
       },
       minWidth: {
-        sm: "516px",
-        md: "804px",
-        lg: "1012px",
-        xl: "1476px",
+        sm: "504px",
+        md: "792px",
+        lg: "1000px",
+        xl: "1464px",
       },
       borderRadius: {
         "4xl": "2rem",
@@ -47,20 +51,15 @@ module.exports = {
           fontSize: theme("fontSize.3xl"),
           fontFamily: theme("fontFamily.sans"),
           fontWeight: theme("fontWeight.bold"),
-          marginBottom: theme("margin.2"),
-          marginTop: theme("margin.4"),
+          lineHeight: theme("lineHeight.none"),
         },
         h2: {
           fontSize: theme("fontSize.xl"),
-          marginBottom: theme("margin.1"),
-          marginTop: theme("margin.2"),
         },
         h3: {
           fontSize: theme("fontSize.lg"),
-          marginBottom: theme("margin.1"),
-          marginTop: theme("margin.1"),
         },
-        p: { marginBottom: theme("margin.1"), fontSize: theme("fontSize.md") },
+        p: { fontSize: theme("fontSize.md") },
       })
     }),
   ],

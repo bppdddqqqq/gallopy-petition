@@ -21,7 +21,7 @@ const AboutPage = ({ data, children }) => {
 
 	return (
 		<Layout>
-			<div className="mx-auto my-0 max-w-3xl">
+			<div className="mx-auto my-0 mt-8 max-w-3xl">
 				<h1>{frontmatter.title}</h1>
 				{children}
 			</div>

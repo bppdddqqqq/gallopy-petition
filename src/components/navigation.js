@@ -30,9 +30,9 @@ class Navigation extends React.Component {
       >
         <div className="flex flex-row max-lg:justify-between max-lg:w-full">
           <div className="flex flex-row my-auto font-bold">
-            <Link className="inline justify-center pl-1 mx-0 my-auto font-sans text-2xl font-bold text-white" to="/"><p>Scala pro Scalu</p></Link>
+            <Link className="inline justify-center pl-1 mx-0 my-auto font-sans text-2xl font-bold text-white" to="/"><p>Za Scalu v Scale</p></Link>
           </div>
-          {/* <nav id="nav" className="my-auto max-lg:ml-auto">
+          <nav id="nav" className="my-auto max-lg:ml-auto">
             <button onClick={this.handleToggleClick} className={"hidden text-2xl bg-none border-none white max-lg:flex group peer" + (this.state.showMenu ? " is-active" : "")}>
               <div className="text-white flex group-[.is-active]:hidden"><RiMenu3Line/></div>
               <div className="text-white hidden group-[.is-active]:flex"><RiCloseLine/></div>
@@ -40,7 +40,7 @@ class Navigation extends React.Component {
             <ul className="p-0 m-0 list-none max-lg:hidden peer-[.is-active]:block max-lg:absolute max-lg:right-0 max-lg:top-full max-lg:z-10 max-lg:w-full max-lg:max-w-xs max-lg:rounded-bl-md max-lg:overflow-hidden max-lg:bg-black">
               {listMenuItems}
             </ul>
-          </nav> */}
+          </nav>
         </div>
       </header>
     )
