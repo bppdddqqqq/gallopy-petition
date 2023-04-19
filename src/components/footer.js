@@ -2,10 +2,18 @@ import React from 'react'
 
 const Footer = () => (
   <footer 
-    className="flex items-center py-3 bg-black text-1xl"
+    className="py-3 text-white bg-black"
   >
-    <div className="mx-auto">
-      <p>👋</p>
+    <div className="container grid grid-cols-3 mx-auto">
+      <div>
+        <h1>Iniciativa Scala pro Scalu</h1>
+        <p>Sitemapa tu</p>
+      </div>
+      <div>
+        <h1>Kontakty</h1>
+        <p>Sitemapa tu</p>
+      </div>
+      
     </div>
   </footer>
 )

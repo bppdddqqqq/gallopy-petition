@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .button {
+    @apply inline-flex items-center px-5 py-3 text-white border-red-500 bg-gray-100 bg-opacity-5 rounded-[4px] no-underline appearance-none text-[16px] leading-none transition-all hover:border-gray-200 border-2;
+  }
+  .button > .icon {
+		@apply inline-flex;
+	}
+  .button > .icon.-right {
+    @apply ml-5;
+  }
+  .button > .icon.-left {
+    @apply mr-5;
+  }
+  .button + .button {
+    @apply ml-5;
+  }
+  .gapped-image > * + * {
+    @apply mt-2;
+  }
+}

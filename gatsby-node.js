@@ -29,12 +29,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Create markdown pages
   const posts = result.data.allMdx.nodes
-  let blogPostsCount = 0
 
   posts.forEach((post, index) => {
     const id = post.id
     const previous = index === posts.length - 1 ? null : posts[index + 1]
     const next = index === 0 ? null : posts[index - 1]
+
+    if (!post.frontmatter.template) {
+      return;
+    }
 
     const url = path.resolve(`src/templates/${String(post.frontmatter.template)}.js`)
     createPage({
@@ -47,30 +50,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         next,
       },
     })
-
-    // Count blog posts.
-    if (post.frontmatter.template === 'blog-post') {
-      blogPostsCount++
-    }
   })
 
-  // Create blog-list pages
-  const postsPerPage = 15
-  const numPages = Math.ceil(blogPostsCount / postsPerPage)
-
-  const url = path.resolve(`./src/templates/blog-list.js`)
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-      component: `${url}?__contentFilePath=${post.internal.contentFilePath}`,
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1,
-      },
-    })
-  })
+  
 }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
