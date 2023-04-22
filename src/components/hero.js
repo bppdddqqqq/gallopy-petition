@@ -1,11 +1,11 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { RiArrowRightSLine } from 'react-icons/ri';
+import { RiArrowRightSLine, RiPenNibFill } from 'react-icons/ri';
 
 const Hero = () => (
-  <div className="relative text-white bg-black bg-opacity-50">
-    <div className='container pt-16 pb-24 m-auto'>
-      <h1 className="m-0 text-3xl font-bold leading-0 md:text-5xl">
+  <div className="relative">
+    <div className='container h-96 m-auto'>
+      {/* <h1 className="m-0 text-3xl font-bold leading-0 md:text-5xl">
         Ahoj. 👋
       </h1>
       <p
@@ -24,14 +24,18 @@ const Hero = () => (
         <span className="icon -right">
           <RiArrowRightSLine />
         </span>
-      </Link>
-      <div className="absolute right-0 left-0 -bottom-5">
+      </Link> */}
+      <div className="absolute right-0 left-0 -bottom-8">
         <div className="flex justify-center">
-          <div className="overflow-hidden w-screen md:w-fit md:rounded-full xl:min-w-xl lg:min-w-lg md:min-w-md bg-neutral-200 dark:bg-neutral-600">
+          <div className="bg-white py-6 px-8 shadow-md flex gap-8">
             <div
-              className="p-0.5 py-3 font-bold leading-none text-center text-white bg-blue-600 text-md"
-              style={{width: "52%"}}>
-              Podepsáno 652
+              className="font-bold leading-none text-left text-md"
+              >
+              <h2 className="text-red-400">Podepsalo:</h2>
+              <p className="text-xl">615</p>
+            </div>
+            <div className="self-center justify-self-center">
+              <RiPenNibFill className="text-6xl" />
             </div>
           </div>
         </div>

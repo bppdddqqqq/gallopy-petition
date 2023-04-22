@@ -34,4 +34,7 @@
   p + p {
     @apply mt-1;
   }
+  html {
+    @apply bg-red-200;
+  }
 }

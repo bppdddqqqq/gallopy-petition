@@ -49,12 +49,16 @@ module.exports = {
       addBase({
         h1: {
           fontSize: theme("fontSize.3xl"),
+          textAlign: "center",
+          color: theme("colors.red.400"),
           fontFamily: theme("fontFamily.sans"),
           fontWeight: theme("fontWeight.bold"),
           lineHeight: theme("lineHeight.none"),
         },
         h2: {
           fontSize: theme("fontSize.xl"),
+          fontWeight: theme("fontWeight.bold"),
+          textAlign: "center",
         },
         h3: {
           fontSize: theme("fontSize.lg"),

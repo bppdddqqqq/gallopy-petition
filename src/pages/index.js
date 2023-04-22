@@ -7,6 +7,8 @@ import OpenLetter from '../content/index/openletter.mdx'
 import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image-es5'
 import Hero from '../components/hero'
+import { RiInstagramFill } from 'react-icons/ri'
+import { IconContext } from 'react-icons'
 
 export const pageQuery = graphql`
   query HomeQuery {
@@ -64,11 +66,10 @@ const HomePage = ({ data }) => {
           <Hero />
         </BackgroundImage>
       </div>
-      <div className="container flex gap-4 justify-between items-center mx-auto my-10 mt-12">
-        <div className='max-w-2xl'>
+      <div className="container max-w-2xl mx-auto my-10 mt-24">
           <IndexText />
-        </div>
-        <div className="max-w-md gapped-image">
+        
+        {/* <div className="max-w-md gapped-image">
           <GatsbyImage
             image={data.info1.childImageSharp.gatsbyImageData}
             alt="Ditto"
@@ -81,25 +82,19 @@ const HomePage = ({ data }) => {
             image={data.info1.childImageSharp.gatsbyImageData}
             alt="Ditto"
           />
-        </div>
+        </div> */}
+        <h2 className="mt-8">Proc by mela Scala existovat?</h2>
       </div>
-      <div className="container grid grid-cols-4 gap-4 mx-auto mt-12">
-        <div>
-          <h1>Issue 1</h1>
-          <p>Excepturi tempore officiis cumque ad voluptatem eveniet vero.</p>
-        </div>
-        <div>
-          <h1>Issue 1</h1>
-          <p>Excepturi tempore officiis cumque ad voluptatem eveniet vero.</p>
-        </div>
-        <div>
-          <h1>Issue 1</h1>
-          <p>Excepturi tempore officiis cumque ad voluptatem eveniet vero.</p>
-        </div>
-        <div>
-          <h1>Issue 1</h1>
-          <p>Excepturi tempore officiis cumque ad voluptatem eveniet vero.</p>
-        </div>
+      <div className="container grid grid-cols-3 gap-16 mx-auto mt-12 max-w-6xl">
+        {Array.from({length: 3}, (_, idx) => (<div key={idx} className="bg-red-400 p-5 shadow-md relative">
+          <h1 className="w-full mb-8 mt-6 text-white">Issue 1</h1>
+          <p className="text-center text-white">Excepturi tempore officiis cumque ad voluptatem eveniet vero.</p>
+          <div className="-top-8 left-0 right-0 absolute">
+            <div className="mx-auto w-fit bg-white text-5xl !text-red-400 p-3 rounded-full shadow-md">
+              <RiInstagramFill/>
+            </div>
+          </div>
+        </div>))}
       </div>
       <div className="grid grid-cols-5 gap-2 my-12 bg-black">
         {
