@@ -1,6 +1,5 @@
-import { Link } from 'gatsby';
 import React, { useEffect, useState } from 'react';
-import { RiArrowRightSLine, RiPenNibFill } from 'react-icons/ri';
+import { RiPenNibFill } from 'react-icons/ri';
 
 const Counter = () => {
   let [count, setCount] = useState(null)
@@ -28,7 +27,7 @@ const Counter = () => {
 
 const Hero = () => (
   <div className="relative">
-    <div className='container h-96 m-auto'>
+    <div className='container m-auto h-96'>
       {/* <h1 className="m-0 text-3xl font-bold leading-0 md:text-5xl">
         Ahoj. 👋
       </h1>
@@ -51,14 +50,14 @@ const Hero = () => (
       </Link> */}
       <div className="absolute right-0 left-0 -bottom-8">
         <div className="flex justify-center">
-          <div className="bg-white py-6 px-8 shadow-md flex gap-8">
+          <div className="flex gap-8 px-8 py-6 bg-white shadow-md">
             <div
               className="font-bold leading-none text-left text-md"
             >
               <h2 className="text-red-400">Podepsalo:</h2>
               <p className="text-xl"><Counter /></p>
             </div>
-            <div className="self-center justify-self-center">
+            <div className="justify-self-center self-center">
               <RiPenNibFill className="text-6xl" />
             </div>
           </div>

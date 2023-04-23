@@ -17,7 +17,7 @@ export const pageQuery = graphql`
 `
 const AboutPage = ({ data, children }) => {
 	const { mdx } = data // data.mdx holds your post data
-  const { frontmatter, body } = mdx
+  const { frontmatter } = mdx
 
 	return (
 		<Layout>

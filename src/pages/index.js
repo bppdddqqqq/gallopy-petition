@@ -8,7 +8,6 @@ import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image-es5'
 import Hero from '../components/hero'
 import { RiInstagramFill } from 'react-icons/ri'
-import { IconContext } from 'react-icons'
 import Petition from '../components/petition'
 
 export const pageQuery = graphql`
@@ -67,7 +66,7 @@ const HomePage = ({ data }) => {
           <Hero />
         </BackgroundImage>
       </div>
-      <div className="container max-w-2xl mx-auto my-10 mt-24">
+      <div className="container mx-auto my-10 mt-24 max-w-2xl">
           <IndexText />
         
         {/* <div className="max-w-md gapped-image">
@@ -87,10 +86,10 @@ const HomePage = ({ data }) => {
         <h2 className="mt-8">Proc by mela Scala existovat?</h2>
       </div>
       <div className="container grid grid-cols-3 gap-16 mx-auto mt-12 max-w-6xl">
-        {Array.from({length: 3}, (_, idx) => (<div key={idx} className="bg-red-400 p-5 shadow-md relative">
-          <h1 className="w-full mb-8 mt-6 text-white">Issue 1</h1>
+        {Array.from({length: 3}, (_, idx) => (<div key={idx} className="relative p-5 bg-red-400 shadow-md">
+          <h1 className="mt-6 mb-8 w-full text-white">Issue 1</h1>
           <p className="text-center text-white">Excepturi tempore officiis cumque ad voluptatem eveniet vero.</p>
-          <div className="-top-8 left-0 right-0 absolute">
+          <div className="absolute right-0 left-0 -top-8">
             <div className="mx-auto w-fit bg-red-300 text-5xl !text-red-400 p-3 rounded-full shadow-md">
               <RiInstagramFill/>
             </div>
@@ -109,10 +108,10 @@ const HomePage = ({ data }) => {
         }
       </div>
       <div className="container mx-auto mb-12 max-w-2xl">
-        <div className="bg-white p-5">
-          <OpenLetter components={{h1: (props) => (<h1 className="text-black text-left" {...props}></h1>)}} />
+        <div className="p-5 bg-white">
+          <OpenLetter components={{h1: (props) => (<h1 className="text-left text-black" {...props}></h1>)}} />
         </div>
-        <div className="bg-white p-5 pt-0">
+        <div className="p-5 pt-0 bg-white">
           <Petition />
         </div>
       </div>

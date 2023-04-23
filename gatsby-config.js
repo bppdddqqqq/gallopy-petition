@@ -46,6 +46,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-postcss',
+    `gatsby-plugin-image`,
     {
       resolve: 'gatsby-background-image-es5',
       options: {
