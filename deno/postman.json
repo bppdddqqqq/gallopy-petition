@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "ac24df36-16b2-41a1-85cb-a696e9f164f6",
+		"name": "Petition Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "test@test.com",
+							"type": "default"
+						},
+						{
+							"key": "firstname",
+							"value": "Adam",
+							"type": "default"
+						},
+						{
+							"key": "lastname",
+							"value": "Parak",
+							"type": "default"
+						},
+						{
+							"key": "consent",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "job",
+							"value": "Developer",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/sign",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sign"
+					],
+					"query": [
+						{
+							"key": "mail",
+							"value": "definitelynotmymail@gmail.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Count",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Names",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
