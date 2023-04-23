@@ -77,23 +77,25 @@ router.post('/sign', async (ctx) => {
     if (body.type === "form-data") {
         const value = body.value;
         const formData = await value.read();
-        console.log(formData)
         // the form data is fully available
         const { fields } = formData;
+        console.debug('Attempted request:', formData)
         const { email, firstname, lastname, job, city } = fields
 
         if (ipCache.has(ctx.request.ip)) {
-            ctx.response.body = 'IP adresa jiz byla pouzita v jine zadosti!';
+            console.debug('Bounce back, accessed IP: ', ctx.request.ip)
+            ctx.response.body = 'IP adresa již byla použita v jiné predošlé žádosti, počkejte prosím!';
             return;
         }
         if (!emailValid(email) || await Signatures.where("email", email).select("email").count() > 0) {
-            ctx.response.body = 'Zly format emailu nebo email byl pouzit!';
+            console.debug('Incorrect email or existing: ', email)
+            ctx.response.body = 'Zlý format e-mailu nebo e-mail byl už registrován na jiný podpis!';
             return;
         }
 
         const consent = (fields.consent === "1");
         const token = uuid.v1.generate().toString();
-
+        console.debug('Sending email token for: ', email, 'with token: ', token)
         await client.connectTLS({
             hostname: env.get('DENO_SERV') || "email-smtp.us-east-1.amazonaws.com",
             port: env.get('DENO_PORT') || 465,
@@ -105,9 +107,11 @@ router.post('/sign', async (ctx) => {
             to: email,
             subject: "[Scala Petice] Zadost o potvrzeni emailu pro podpis",
             content: ".z",
-            html: `Dobry den, posilame vam informaci, ze jste na nasem webu podepsal petici a je nutne pro dokonceni podpisu potvrdit email touhle spravou. Pro potvrzeni stlacte odkaz nize <a href='http://localhost:8080/confirm?email=${email}&token=${token}'>http://localhost:8080/confirm?email=${email}&token=${token}</a>`,
+            html: `Dobry den, posilame vam informaci, ze jste na nasem webu www.scalavescale.cz podepsal petici a je nutne pro dokonceni podpisu potvrdit email touhle spravou. Pro potvrzeni stlacte odkaz nize <a href='http://localhost:8080/confirm?email=${email}&token=${token}'>http://localhost:8080/confirm?email=${email}&token=${token}</a>`,
         });
         await client.close()
+        console.debug('The email should be sent out!: ', email, token)
+        console.debug('Writing data to database: ', formData)
         await Signatures.create({
             firstName: firstname,
             lastName: lastname,
@@ -118,10 +122,12 @@ router.post('/sign', async (ctx) => {
             ip: ctx.request.ip,
             city,
         })
+        console.debug('Done!', formData)
+        console.debug('Marking IP as tainted: ', ctx.request.ip)
         ipCache.set(ctx.request.ip, '')
-        console.log(email, token)
+        console.debug('Marked!:', ctx.request.ip)
         
-        ctx.response.body = 'Odevzdáno!!';
+        ctx.response.body = 'ok';
     } else {
         ctx.response.body = 'Zlá žádost!';
     }
