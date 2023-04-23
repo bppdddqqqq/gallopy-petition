@@ -169,4 +169,4 @@ app.use(oakCors()); // Enable CORS for All Routes
 app.use(router.routes());
 app.use(router.allowedMethods());
 console.log('Server should be running! <star>')
-await app.listen({ port: 8080 });
+await app.listen({ port: 8080, certFile: '/etc/letsencrypt/live/petice-scala.rekt.su/cert.pem', keyFile: '/etc/letsencrypt/live/petice-scala.rekt.su/privkey.pem' });
