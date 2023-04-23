@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RiPenNibFill } from 'react-icons/ri';
+import { SERVER_URL } from '../global';
 
 const Counter = () => {
   let [count, setCount] = useState(null)
@@ -7,7 +8,7 @@ const Counter = () => {
     if (count != null) {
       return;
     }
-    fetch('http://localhost:8080/count').then((response) => {
+    fetch(`${SERVER_URL}/count`).then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
