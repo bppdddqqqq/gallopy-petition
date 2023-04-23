@@ -1,11 +1,8 @@
 {
   "meta": {
-    "title": "Rekt.su",
+    "title": "Scala ve Scale",
     "titleTemplate": "%s",
-    "description": "48's website",
-    "siteUrl": "https://rekt.su",
-    "image": "/assets/thex.png",
-    "iconimage": "/assets/thex.png"
-  },
-  "ga": ""
+    "description": "Stránka petiční akce pro zachování Kina Scala v prostorách Kina Scala",
+    "siteUrl": "https://scalavescale.cz"
+  }
 }
