@@ -47,7 +47,7 @@ import { oakCors } from "https://deno.land/x/cors/mod.ts";
 const app = new Application();
 const router = new Router();
 
-const ipCache = new LRU<any, any>({
+const ipCache = new LRU<string, string>({
     max: 4096
     , length: (n, key) => 1
     , dispose: (key, n) =>  (0)
@@ -82,7 +82,7 @@ router.post('/sign', async (ctx) => {
         console.debug('Attempted request:', formData)
         const { email, firstname, lastname, job, city } = fields
 
-        if (ipCache.has(ctx.request.ip)) {
+        if (ipCache.get(ctx.request.ip) === 'marked') {
             console.debug('Bounce back, accessed IP: ', ctx.request.ip)
             ctx.response.body = 'IP adresa již byla použita v jiné predošlé žádosti, počkejte prosím!';
             return;
@@ -124,7 +124,7 @@ router.post('/sign', async (ctx) => {
         })
         console.debug('Done!', formData)
         console.debug('Marking IP as tainted: ', ctx.request.ip)
-        ipCache.set(ctx.request.ip, '')
+        ipCache.set(ctx.request.ip, 'marked')
         console.debug('Marked!:', ctx.request.ip)
         
         ctx.response.body = 'ok';
