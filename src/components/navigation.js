@@ -18,7 +18,7 @@ class Navigation extends React.Component {
 
   render () {
     const listMenuItems = navigatorJson.menuItems.map((menuItem, index) => 
-      <li key={index} className="inline-block ml-5"> {/*max-lg:block max-lg:ml-0*/}
+      <li key={index} className="inline-block mr-5"> {/*max-lg:block max-lg:ml-0*/}
         <Link to={menuItem.path} className="h-0 text-gray-300 hover:text-white max-lg:block aria-[current=page]:text-white">{/*max-lg:p-5*/}
           {menuItem.title}
         </Link>
@@ -26,7 +26,7 @@ class Navigation extends React.Component {
     )
     return (
       <header 
-        className="flex sticky top-0 justify-between items-center px-12 pl-8 py-2 z-[5000] bg-red-400"
+        className="flex sticky top-0 justify-between items-center px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 z-[5000] bg-red-400 shadow-md"
       >
         <div className="flex flex-row justify-between w-full">
           {/* <div className="flex flex-row my-auto font-bold">
@@ -42,7 +42,7 @@ class Navigation extends React.Component {
               {listMenuItems}
             </ul>
           </nav>
-          <div className="ml-auto text-white my-auto">
+          <div className="my-auto ml-auto text-white">
             <div className="flex gap-4 text-3xl">
               <RiFacebookBoxFill />
               <RiInstagramFill />

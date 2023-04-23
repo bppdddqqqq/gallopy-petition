@@ -1,7 +1,7 @@
 import React from 'react'
-import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
+import { useStaticQuery, graphql } from "gatsby"
 import IndexText from '../content/index/maintext.mdx'
 import OpenLetter from '../content/index/openletter.mdx'
 import { convertToBgImage } from 'gbimage-bridge'
@@ -12,6 +12,11 @@ import Petition from '../components/petition'
 
 export const pageQuery = graphql`
   query HomeQuery {
+    site {
+      siteMetadata {
+        siteTitle: title
+      }
+    }
     placeholderImage: file(relativePath: { eq: "sca30.jpg" }) {
       childImageSharp {
         gatsbyImageData(
@@ -50,6 +55,18 @@ export const pageQuery = graphql`
   }
 `
 
+const Card = ({text, header, icon, className}) => (
+  <div className={"relative p-5 bg-red-400 shadow-md "+className}>
+    <h1 className="mt-6 mb-8 w-full text-white">{header}</h1>
+    <p className="text-center text-white">{text}</p>
+    <div className="absolute right-0 left-0 -top-8">
+      <div className="mx-auto w-fit bg-red-300 text-5xl !text-red-400 p-3 rounded-full shadow-md">
+        {icon}
+      </div>
+    </div>
+  </div>
+)
+
 const HomePage = ({ data }) => {
   const { placeholderImage } = data
   const image = getImage(placeholderImage)
@@ -85,16 +102,10 @@ const HomePage = ({ data }) => {
         </div> */}
         <h2 className="mt-8">Proc by mela Scala existovat?</h2>
       </div>
-      <div className="container grid grid-cols-3 gap-16 mx-auto mt-12 max-w-6xl">
-        {Array.from({length: 3}, (_, idx) => (<div key={idx} className="relative p-5 bg-red-400 shadow-md">
-          <h1 className="mt-6 mb-8 w-full text-white">Issue 1</h1>
-          <p className="text-center text-white">Excepturi tempore officiis cumque ad voluptatem eveniet vero.</p>
-          <div className="absolute right-0 left-0 -top-8">
-            <div className="mx-auto w-fit bg-red-300 text-5xl !text-red-400 p-3 rounded-full shadow-md">
-              <RiInstagramFill/>
-            </div>
-          </div>
-        </div>))}
+      <div className="container grid grid-cols-3 gap-16 mx-auto mt-12 max-w-6xl max-lg:grid-cols-2 max-md:grid-cols-1">
+        <Card header="Issue 1" text="Excepturi tempore officiis cumque ad voluptatem eveniet vero." icon={<RiInstagramFill />} />
+        <Card header="Issue 2" text="Excepturi tempore officiis cumque ad voluptatem eveniet vero." icon={<RiInstagramFill />} />
+        <Card header="Issue 3" text="Excepturi tempore officiis cumque ad voluptatem eveniet vero." icon={<RiInstagramFill />} className="md:max-lg:col-start-1 md:max-lg:col-end-3 md:max-lg:mx-auto md:max-lg:w-1/2" />
       </div>
       <div className="grid grid-cols-5 gap-2 my-12 bg-black">
         {
@@ -117,6 +128,15 @@ const HomePage = ({ data }) => {
       </div>
     </Layout>
   )
+}
+
+export const Head = ({ data }) => {
+  const { site } = data
+  const { siteTitle } = site.siteMetadata
+
+  return (<>
+    <title>{siteTitle}</title>
+  </>)
 }
 
 export default HomePage

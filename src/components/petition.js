@@ -96,7 +96,7 @@ const Petition = () => {
             {error}
           </div>
           <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="grid grid-cols-2 gap-4 mb-4 max-md:grid-cols-1">
               <label>
                 Jméno:
                 <input type="text" name="firstname" value={form.firstname} onChange={handleChange} />
@@ -128,7 +128,7 @@ const Petition = () => {
             </label>
             <label className='mb-4 text-sm font-normal'>
               <input type="checkbox" name="agreed" value={form.agreed} onChange={handleChange} />
-              Souhlasím s podmínkami o Spracovávaní osobních údajů
+              Souhlasím s podmínkami o Spracovávaní osobních údajů (<b>Povinné</b>)
             </label>
 
             <input type="submit" value="Submit" />
