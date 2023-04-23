@@ -1,0 +1,1 @@
+deno run -qA --unstable https://deno.land/x/denon/denon.ts run --allow-read --allow-write --allow-net server.ts

@@ -15,6 +15,8 @@
         autoreconfHook
         libpng
         yarn
+        deno
+        sqlite
       ];
     };
   };
