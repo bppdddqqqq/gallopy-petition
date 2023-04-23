@@ -26,7 +26,7 @@ class Navigation extends React.Component {
     )
     return (
       <header 
-        className="flex sticky top-0 justify-between items-center px-12 pl-8 py-2 z-[5000] bg-black"
+        className="flex sticky top-0 justify-between items-center px-12 pl-8 py-2 z-[5000] bg-red-400"
       >
         <div className="flex flex-row justify-between w-full">
           {/* <div className="flex flex-row my-auto font-bold">

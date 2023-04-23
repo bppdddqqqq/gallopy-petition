@@ -33,6 +33,14 @@ module.exports = {
         lg: "976px",
         xl: "1440px",
       },
+      colors: {
+        'red': {
+          '600': '#661616',
+          '400': '#B22828',
+          '200': '#E9D7D7',
+          '300': '#FED0D0'
+        }
+      },
       minWidth: {
         sm: "504px",
         md: "792px",

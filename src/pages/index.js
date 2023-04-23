@@ -9,6 +9,7 @@ import BackgroundImage from 'gatsby-background-image-es5'
 import Hero from '../components/hero'
 import { RiInstagramFill } from 'react-icons/ri'
 import { IconContext } from 'react-icons'
+import Petition from '../components/petition'
 
 export const pageQuery = graphql`
   query HomeQuery {
@@ -90,7 +91,7 @@ const HomePage = ({ data }) => {
           <h1 className="w-full mb-8 mt-6 text-white">Issue 1</h1>
           <p className="text-center text-white">Excepturi tempore officiis cumque ad voluptatem eveniet vero.</p>
           <div className="-top-8 left-0 right-0 absolute">
-            <div className="mx-auto w-fit bg-white text-5xl !text-red-400 p-3 rounded-full shadow-md">
+            <div className="mx-auto w-fit bg-red-300 text-5xl !text-red-400 p-3 rounded-full shadow-md">
               <RiInstagramFill/>
             </div>
           </div>
@@ -108,10 +109,12 @@ const HomePage = ({ data }) => {
         }
       </div>
       <div className="container mx-auto mb-12 max-w-2xl">
-        <OpenLetter />
-      </div>
-      <div className="container mx-auto mb-12">
-
+        <div className="bg-white p-5">
+          <OpenLetter components={{h1: (props) => (<h1 className="text-black text-left" {...props}></h1>)}} />
+        </div>
+        <div className="bg-white p-5 pt-0">
+          <Petition />
+        </div>
       </div>
     </Layout>
   )
