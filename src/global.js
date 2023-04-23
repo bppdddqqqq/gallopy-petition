@@ -1,1 +1,1 @@
-export const SERVER_URL = 'https://petice-rekt.su:8080'
+export const SERVER_URL = 'https://petice-scala.rekt.su:8080'
