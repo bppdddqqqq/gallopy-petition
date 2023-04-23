@@ -1,6 +1,5 @@
 import { DataTypes, Database, Model, SQLite3Connector } from 'https://deno.land/x/denodb_updated/mod.ts';
 
-if 
 const conn = new SQLite3Connector({
     filepath: 'app.db'
 })
@@ -31,8 +30,10 @@ class Signatures extends Model {
   
 db.link([Signatures]);
 
+const env = Deno.env;
 //todo: remove drop when in prod!
-await db.sync({ drop: env['DENO_PRODUCTION_MODE']=='FALSE' });
+if (env.get('DENO_FIRST_START') === 'TRUE')
+    await db.sync({ drop: true });
 // await db.sync()
 
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
@@ -54,11 +55,10 @@ const ipCache = new LRU<any, any>({
 });
 
 import { readCSVObjects } from "https://deno.land/x/csv/mod.ts";
-import env from 'https://deno.land/x/sqlite@v3.1.3/build/vfs.js';
 
 let awsUsername = '';
 let awsPassword = ''
-if (env['DENO_PRODUCTION_MODE'] != 'TRUE') {
+if (env.get('DENO_PRODUCTION_MODE') != 'TRUE') {
     const f = await Deno.open("./credentials.csv");
     for await (const obj of readCSVObjects(f)) {
         awsUsername = obj['Smtp Username']
@@ -95,16 +95,16 @@ router.post('/sign', async (ctx) => {
         const token = uuid.v1.generate().toString();
 
         await client.connectTLS({
-            hostname: env['DENO_SERV'] || "email-smtp.us-east-1.amazonaws.com",
-            port: env['DENO_PORT'] || 465,
-            username: env['DENO_USER'] || awsUsername,
-            password: env['DENO_PASS'] || awsPassword,
+            hostname: env.get('DENO_SERV') || "email-smtp.us-east-1.amazonaws.com",
+            port: env.get('DENO_PORT') || 465,
+            username: env.get('DENO_USER') || awsUsername,
+            password: env.get('DENO_PASS') || awsPassword,
           }).then(() => console.log('SMTP connected!'));
         await client.send({
             from: "scala.noreply@gmail.com",
             to: email,
             subject: "[Scala Petice] Zadost o potvrzeni emailu pro podpis",
-            content: ".",
+            content: ".z",
             html: `Dobry den, posilame vam informaci, ze jste na nasem webu podepsal petici a je nutne pro dokonceni podpisu potvrdit email touhle spravou. Pro potvrzeni stlacte odkaz nize <a href='http://localhost:8080/confirm?email=${email}&token=${token}'>http://localhost:8080/confirm?email=${email}&token=${token}</a>`,
         });
         await client.close()
@@ -161,4 +161,5 @@ router.get('/names', countCache.use, async (ctx) => {
 app.use(oakCors()); // Enable CORS for All Routes
 app.use(router.routes());
 app.use(router.allowedMethods());
+console.log('Server should be running! <star>')
 await app.listen({ port: 8080 });
