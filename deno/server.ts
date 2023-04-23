@@ -1,4 +1,5 @@
 import { DataTypes, Database, Model, SQLite3Connector } from 'https://deno.land/x/denodb_updated/mod.ts';
+import { SERVER_URL } from '../src/global.js'
 
 const conn = new SQLite3Connector({
     filepath: 'app.db'
@@ -107,7 +108,7 @@ router.post('/sign', async (ctx) => {
             to: email,
             subject: "[Scala Petice] Zadost o potvrzeni emailu pro podpis",
             content: ".z",
-            html: `Dobry den, posilame vam informaci, ze jste na nasem webu www.scalavescale.cz podepsal petici a je nutne pro dokonceni podpisu potvrdit email touhle spravou. Pro potvrzeni stlacte odkaz nize <a href='http://localhost:8080/confirm?email=${email}&token=${token}'>http://localhost:8080/confirm?email=${email}&token=${token}</a>`,
+            html: `Dobry den, posilame vam informaci, ze jste na nasem webu www.scalavescale.cz podepsal petici a je nutne pro dokonceni podpisu potvrdit email touhle spravou. Pro potvrzeni stlacte odkaz nize <a href='${SERVER_URL}/confirm?email=${email}&token=${token}'>${SERVER_URL}/confirm?email=${email}&token=${token}</a>`,
         });
         await client.close()
         console.debug('The email should be sent out!: ', email, token)
