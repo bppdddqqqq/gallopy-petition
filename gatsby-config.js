@@ -4,12 +4,12 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-// const settings = require("./src/util/site.json")
+const settings = require("./src/util/site.json")
 // const path = require('path')
 // const process = require('process')
 
 module.exports = {
-  // siteMetadata: settings.meta,
+  siteMetadata: settings.meta,
   plugins: [
     {
       resolve: `gatsby-plugin-mdx`,
