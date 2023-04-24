@@ -137,17 +137,25 @@ router.post('/sign', async (ctx) => {
 router.get('/confirm', async (ctx) => {
     const token = ctx.request.url.searchParams.get('token') || ''
     const email = ctx.request.url.searchParams.get('email') || ''
+    console.debug("Token confirmation request: ", email, token, ctx.request.ip)
     if (email == '' || token == '' || !emailValid(email)) {
         ctx.response.body = 'Zlá žádost!';
+        console.debug('Fail!')
         return;
     }
 
-    const candidate = await Signatures.where('email', email).where('token', token).get() as Signatures[]
+    try {
+        const candidate = await Signatures.where('email', email).where('token', token).get() as Signatures[]
     
-    candidate[0].token = ''
-    await candidate[0].update()
-    
-    ctx.response.body = 'Dekujeme, za potvrzeni emailu, vas hlas byl zaregistrovan do petice!'
+        candidate[0].token = ''
+        await candidate[0].update()
+        
+        ctx.response.body = 'Dekujeme, za potvrzeni emailu, vas hlas byl zaregistrovan do petice!'
+        console.debug('Success!')
+    } catch {
+        ctx.response.body = 'Chyba! Uz jste petici podepsali!'
+        console.debug('Fatal failure!')
+    }
 })
 
 const countCache = new Zoic({
