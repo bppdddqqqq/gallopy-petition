@@ -34,9 +34,9 @@
   p + p {
     @apply mt-1;
   }
-  html {
+  /* html {
     @apply bg-red-200;
-  }
+  } */
   button {
     @apply bg-red-600 rounded-lg pb-3 pt-2.5 px-6 text-white;
     @apply hover:bg-red-400;
