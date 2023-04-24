@@ -64,7 +64,7 @@ module.exports = {
           lineHeight: theme("lineHeight.none"),
         },
         h2: {
-          fontSize: theme("fontSize.xl"),
+          fontSize: theme("fontSize.2xl"),
           fontWeight: theme("fontWeight.bold"),
           textAlign: "center",
         },
