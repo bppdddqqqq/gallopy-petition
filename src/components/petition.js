@@ -131,7 +131,7 @@ const Petition = () => {
               Souhlasím s podmínkami o Spracovávaní osobních údajů (<b>Povinné</b>)
             </label>
 
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Odevzdat" />
           </form>
         </div>
         <div className={"py-6 " + (uploaded ? "block" : "hidden")}>
