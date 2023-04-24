@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import { SEO } from "../components/seo"
 
 export const pageQuery = graphql`
   query AboutQuery($id: String!){
@@ -28,5 +29,9 @@ const AboutPage = ({ data, children }) => {
 		</Layout>
 	)
 }
+
+export const Head = () => (
+	<SEO />
+) 
 
 export default AboutPage

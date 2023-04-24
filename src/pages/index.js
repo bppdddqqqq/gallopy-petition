@@ -1,22 +1,19 @@
 import React from 'react'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import IndexText from '../content/index/maintext.mdx'
 import OpenLetter from '../content/index/openletter.mdx'
 import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image-es5'
 import Hero from '../components/hero'
-import { RiInstagramFill } from 'react-icons/ri'
+import { RiFacebookBoxFill, RiInstagramFill } from 'react-icons/ri'
 import Petition from '../components/petition'
+import { SEO } from '../components/seo'
+import BigLetter from '../content/index/bigletter.mdx'
 
 export const pageQuery = graphql`
   query HomeQuery {
-    site {
-      siteMetadata {
-        siteTitle: title
-      }
-    }
     placeholderImage: file(relativePath: { eq: "sca30.jpg" }) {
       childImageSharp {
         gatsbyImageData(
@@ -102,12 +99,12 @@ const HomePage = ({ data }) => {
         </div> */}
         <h2 className="mt-8">Proc by mela Scala existovat?</h2>
       </div>
-      <div className="container grid grid-cols-3 gap-16 mx-auto mt-12 max-w-6xl max-lg:grid-cols-2 max-md:grid-cols-1">
+      <div className="container grid grid-cols-3 gap-16 mx-auto mt-12 max-w-6xl max-lg:grid-cols-2 max-md:grid-cols-1 mb-24 lg:mb-36">
         <Card header="Issue 1" text="Excepturi tempore officiis cumque ad voluptatem eveniet vero." icon={<RiInstagramFill />} />
         <Card header="Issue 2" text="Excepturi tempore officiis cumque ad voluptatem eveniet vero." icon={<RiInstagramFill />} />
         <Card header="Issue 3" text="Excepturi tempore officiis cumque ad voluptatem eveniet vero." icon={<RiInstagramFill />} className="md:max-lg:col-start-1 md:max-lg:col-end-3 md:max-lg:mx-auto md:max-lg:w-1/2" />
       </div>
-      <div className="grid grid-cols-5 gap-2 my-12 bg-black">
+      {/* <div className="grid grid-cols-5 gap-2 my-12 bg-black">
         {
           Array.from({ length: 5 }, (_, i) => (<div key={i} >
             <GatsbyImage
@@ -117,26 +114,33 @@ const HomePage = ({ data }) => {
             />
           </div>))
         }
-      </div>
-      <div className="container mx-auto mb-12 max-w-2xl">
-        <div className="p-5 bg-white">
+      </div> */}
+      <div className="mx-auto lg:mb-36 max-w-7xl">
+        <div className="py-8 pt-12 px-16 bg-red-200 relative">
+          <h1 className="text-6xl text-left absolute -top-8 left-4">Petice</h1>
           <OpenLetter components={{h1: (props) => (<h1 className="text-left text-black" {...props}></h1>)}} />
         </div>
-        <div className="p-5 pt-0 bg-white">
+        <div className="py-8 px-16 pt-0 bg-red-200">
           <Petition />
+        </div>
+      </div>
+      <div className="relative w-100 overflow-hidden lg:mb-16">
+        <GatsbyImage image={data.placeholderImage.childImageSharp.gatsbyImageData} className='h-144 absolute top-0 left-0 w-full right-0 -z-10'/>
+        <div className='container mx-auto bg-white p-8 mt-36 pt-24 z-20 relative max-w-4xl border-b-4 border-b-red-400 text-center'>
+            <div className="absolute -top-12 w-fit mx-auto text-center p-8 px-24 bg-red-400 left-0 right-0">
+              <h1 className="text-white">AAAAAAAAAa</h1>
+            </div>
+            <BigLetter />
+            <p className="pt-10 pb-4">Aktuální informace na sociálních sítích</p>
+            <div className="text-red-400 fill-red-400 flex flex-row mx-auto text-5xl w-fit gap-8"><RiFacebookBoxFill /><RiInstagramFill /></div>
         </div>
       </div>
     </Layout>
   )
 }
 
-export const Head = ({ data }) => {
-  const { site } = data
-  const { siteTitle } = site.siteMetadata
-
-  return (<>
-    <title>{siteTitle}</title>
-  </>)
-}
+export const Head = ({ data }) => (
+  <SEO />
+)
 
 export default HomePage

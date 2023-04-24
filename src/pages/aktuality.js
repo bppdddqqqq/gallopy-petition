@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import { SEO } from "../components/seo"
 
 export const pageQuery = graphql`
   query AktualityQuery {
@@ -23,13 +24,8 @@ const AktualityPage = ({ data }) => {
 	)
 }
 
-export const Head = ({ data }) => {
-  const { site } = data
-  const { siteTitle } = site.siteMetadata
-
-  return (<>
-    <title>{siteTitle}</title>
-  </>)
-}
+export const Head = () => (
+  <SEO />
+)
 
 export default AktualityPage
