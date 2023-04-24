@@ -37,7 +37,7 @@ const Petition = () => {
       return response.text();
     })
     .then((data) => {
-      if (data == 'ok') {
+      if (data === 'ok') {
         setUploaded(true)
       } else {
         setError(data)
@@ -90,7 +90,7 @@ const Petition = () => {
   return (
     <div className=''>
       <button className="" onClick={() => setView(!view)}>Podepsat</button>
-      <div className={"mt-8 p-2 border-2 border-dashed "+(view || uploaded ? "block" : "hidden")}>
+      <div className={"mt-8 p-2 border-2 border-dashed bg-white w-fit "+(view || uploaded ? "block" : "hidden")}>
         <div className={(view && !uploaded ? "block" : "hidden")}>
           <div className={'bg-red-500 p-4 text-white mb-4 ' + (error !== '' ? 'block' : 'hidden')}>
             {error}
