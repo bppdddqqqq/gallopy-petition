@@ -125,7 +125,7 @@ const HomePage = ({ data }) => {
         </div>
       </div>
       <div className="relative w-100 overflow-hidden lg:mb-16">
-        <GatsbyImage image={data.placeholderImage.childImageSharp.gatsbyImageData} style={{"position": "absolute !important"}} className='h-144 top-0 left-0 w-full right-0 -z-10'/>
+        <GatsbyImage image={data.placeholderImage.childImageSharp.gatsbyImageData} className='!absolute h-144 top-0 left-0 w-full right-0 -z-10'/>
         <div className='container mx-auto bg-white p-8 mt-36 pt-24 z-20 relative max-w-4xl border-b-4 border-b-red-400 text-center'>
             <div className="absolute -top-12 w-fit mx-auto text-center p-8 px-24 bg-red-400 left-0 right-0">
               <h1 className="text-white">AAAAAAAAAa</h1>
