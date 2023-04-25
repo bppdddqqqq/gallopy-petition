@@ -13,7 +13,7 @@ class Signatures extends Model {
 
     static fields = {
       id: { primaryKey: true, autoIncrement: true },
-    
+
       firstname: DataTypes.STRING,
       lastname: DataTypes.STRING,
       email: {
@@ -24,11 +24,11 @@ class Signatures extends Model {
       job: DataTypes.STRING,
       city: DataTypes.STRING,
       ip: DataTypes.STRING,
-    
+
       token: DataTypes.STRING,
     };
   }
-  
+
 db.link([Signatures]);
 
 const env = Deno.env;
@@ -74,13 +74,13 @@ router.post('/sign', async (ctx) => {
 
         if (!emailValid(email) || await Signatures.where("email", email).select("email").count() > 0) {
             console.debug('Incorrect email or existing: ', email)
-            ctx.response.body = 'Zlý format e-mailu nebo e-mail byl už registrován na jiný podpis!';
+            ctx.response.body = 'Špatný formát e-mailu, nebo e-mail byl již registrován na jiný podpis!';
             return;
         }
 
         if (ipCache.get(ctx.request.ip) === 'marked') {
             console.debug('Bounce back, accessed IP: ', ctx.request.ip)
-            ctx.response.body = 'IP adresa již byla použita v jiné predošlé žádosti, počkejte prosím!';
+            ctx.response.body = 'IP adresa již byla použita v jiné žádosti, počkejte prosím!';
             return;
         }
 
@@ -96,7 +96,7 @@ router.post('/sign', async (ctx) => {
         await client.send({
             from: "scala.noreply@gmail.com",
             to: email,
-            subject: "[Scala Petice] Žádost o ověření petice pro podpis",
+            subject: "[Scala Petice] Žádost o ověření podpisu",
             content: ".z",
             html: `Dobrý den,<br />
 Do petice pod názvem Scala ve Scale jsme zaznamenali Váš online podpis! Děkujeme a držme si palce, že naše milované kino zůstane přesně takové, jaké je! Aby váš podpis byl řádne zaznamenán, potřebuje od vás potvrzení formou kliknutí na odkaz níže.<br />
@@ -125,8 +125,8 @@ Inciativa Scala ve Scale`,
             city,
         })
         console.debug('Done!', formData)
-        
-        
+
+
         ctx.response.body = 'ok';
     } else {
         ctx.response.body = 'Zlá žádost!';
@@ -165,14 +165,14 @@ router.get('/confirm', async (ctx) => {
 
     try {
         const candidate = await Signatures.where('email', email).where('token', token).get() as Signatures[]
-    
+
         candidate[0].token = ''
         await candidate[0].update()
-        
-        ctx.response.body = generateBody('Úspěch!', 'Děkujeme, za potvrzení emailu, váš hlas byl zaregistrován do petice!')
+
+        ctx.response.body = generateBody('Úspěch!', 'Děkujeme za potvrzení e-mailu, Váš hlas byl zaregistrován do petice!')
         console.debug('Success!')
     } catch {
-        ctx.response.body = generateBody('Chyba!', 'Chyba! Už jste petici podepsali nebo je odkaz neplatný!')
+        ctx.response.body = generateBody('Chyba!', 'Chyba! Petici jste již podepsali, nebo je odkaz neplatný!')
         console.debug('Fatal failure!')
     }
 })
