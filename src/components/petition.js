@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { SERVER_URL } from '../global';
+import { Link } from 'gatsby'
 
 const Petition = () => {
   const [view, setView] = useState(false)
@@ -134,7 +135,7 @@ const Petition = () => {
             </label>
             <label className='mb-4 text-sm font-normal'>
               <input type="checkbox" name="agreed" value={form.agreed} onChange={handleChange} />
-              Souhlasím s podmínkami o Spracovávaní osobních údajů (<b>Povinné</b>)
+              Souhlasím s podmínkami o <Link to="/podminky"><u>Spracovávaní osobních údajů</u></Link> (<b>Povinné</b>)
             </label>
 
             <input type="submit" value="Odevzdat" />
