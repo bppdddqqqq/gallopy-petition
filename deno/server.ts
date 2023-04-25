@@ -182,7 +182,7 @@ const itemCache = new Zoic({
 import { isNumber } from "https://deno.land/x/is_number/mod.ts";
 
 router.get('/fetch/:page', itemCache.use, async (ctx) => {
-    if (ctx?.params?.page == null || !isNumber(ctx.params.page) || Number.isInteger(Number(ctx.params.page))) {
+    if (ctx?.params?.page == null || !isNumber(ctx.params.page)) {
         ctx.response.body = 'nok';
         return;
     }
