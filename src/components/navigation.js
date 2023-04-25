@@ -26,9 +26,12 @@ class Navigation extends React.Component {
     )
     return (
       <header 
-        className="flex sticky top-0 justify-between items-center px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 z-[5000] bg-red-400 shadow-md"
+        className="sticky top-0 z-[5000] shadow-md"
       >
-        <div className="flex flex-row justify-between w-full">
+        <div className="bg-yellow-200 py-2 text-black text-center">
+          <p>Petiční server je pod vysokou zátěží, za vzniknuté komplikace se ospravedlňujeme.</p>
+        </div>
+        <div className="flex flex-row justify-between w-full px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 bg-red-400 ">
           <nav id="nav" className="my-auto max-lg:ml-auto">
             <ul className="p-0 m-0 list-none">
               {listMenuItems}
