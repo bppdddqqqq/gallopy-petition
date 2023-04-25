@@ -13,7 +13,7 @@ const Counter = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-  
+
       return response.text();
     })
     .then((data) => {
@@ -58,7 +58,8 @@ const Hero = () => (
               className="font-bold leading-none text-left text-md"
             >
               <h2 className="text-red-400">Podepsalo:</h2>
-              <p className="text-xl"><Counter /></p>
+              <p className="text-xl my-1 text-center"><Counter /></p>
+              <small>(aktualizace každých 15 min)</small>
             </div>
             <div className="justify-self-center self-center">
               <RiPenNibFill className="text-6xl text-red-400" />

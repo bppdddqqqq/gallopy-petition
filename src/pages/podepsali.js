@@ -48,7 +48,7 @@ const PodepsaliPage = ({ data }) => {
 		<Layout>
 			<div className="mx-auto my-0 mt-8 max-w-6xl">
 				<h1>Petici podepsali tito Scalní fanoušci:</h1>
-				<p>Tabulka zobrazuje pouze jména osob, které souhlasily se zveřejněním svých osobních údajů, počet respondentů níže se tak nemusí shodovat s celkovým počtem podporovatelů.</p>
+				<p>Tabulka zobrazuje pouze jména osob, které souhlasily se zveřejněním svých osobních údajů, počet respondentů níže se tak nemusí shodovat s celkovým počtem podporovatelů. Počítadlo je aktualizováno každých 15 minut.</p>
 				<div className="p-5 shadow-md">
 				<table>
 					<thead>
