@@ -41,19 +41,11 @@ import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import { valid as emailValid } from "https://deno.land/x/validation@v0.4.0/email.ts";
 import * as uuid from "https://deno.land/std/uuid/mod.ts";
 import { Zoic } from "https://deno.land/x/zoic/zoic.ts";
-import LRU from "https://deno.land/x/lru_cache@6.0.0-deno.4/mod.ts";
 import { SmtpClient } from "https://deno.land/x/smtp/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
 const app = new Application();
 const router = new Router();
-
-const ipCache = new LRU<string, string>({
-    max: 4096
-    , length: (n, key) => 1
-    , dispose: (key, n) =>  (0)
-    , maxAge: 1000 * 15
-});
 
 const client = new SmtpClient();
 
@@ -71,11 +63,6 @@ router.post('/sign', async (ctx) => {
         console.debug('Attempted request:', formData)
         const { email, firstname, lastname, job, city } = fields
 
-        if (ipCache.get(ctx.request.ip) === 'marked') {
-            console.debug('Bounce back, accessed IP: ', ctx.request.ip)
-            ctx.response.body = 'IP adresa již byla použita v jiné predošlé žádosti, počkejte prosím!';
-            return;
-        }
         if (!emailValid(email) || await Signatures.where("email", email).select("email").count() > 0) {
             console.debug('Incorrect email or existing: ', email)
             ctx.response.body = 'Zlý format e-mailu nebo e-mail byl už registrován na jiný podpis!';
@@ -120,9 +107,6 @@ Inciativa Scala ve Scale`,
             city,
         })
         console.debug('Done!', formData)
-        console.debug('Marking IP as tainted: ', ctx.request.ip)
-        ipCache.set(ctx.request.ip, 'marked')
-        console.debug('Marked!:', ctx.request.ip)
         
         ctx.response.body = 'ok';
     } else {
