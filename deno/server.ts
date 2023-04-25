@@ -189,6 +189,26 @@ router.get('/names', countCache.use, async (ctx) => {
     ctx.response.body = JSON.stringify(names)
 })
 
+const itemCache = new Zoic({
+    cache: 'LFU',
+    expire: '60m, 3s',
+    capacity: 15,
+});
+
+import { isNumber } from "https://deno.land/x/is_number/mod.ts";
+
+router.get('/fetch/:page', itemCache.use, async (ctx) => {
+    if (ctx?.params?.page == null || !isNumber(ctx.params.page) || Number.isInteger(Number(ctx.params.page))) {
+        ctx.response.body = 'nok';
+        return;
+    }
+    const page = Number(ctx?.params?.page)
+    const skipOffset = page * 10
+    const limit = 10
+    const names = await Signatures.where("consent", true).where("token", "").select("firstName", "lastName", "job").skip(skipOffset).limit(limit).orderBy("id", "desc").get()
+    ctx.response.body = JSON.stringify(names)
+})
+
 app.use(oakCors()); // Enable CORS for All Routes
 app.use(router.routes());
 app.use(router.allowedMethods());
