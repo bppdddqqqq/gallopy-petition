@@ -76,7 +76,7 @@ const HomePage = ({ data }) => {
             <div className="text-center mt-4">
               <button onClick={scroller}>K petici</button>
             </div>
-          </div> 
+          </div>
           <div className="absolute bottom-0 left-8 -z-10 top-5">
             <LeftSide />
           </div>
@@ -108,7 +108,7 @@ const HomePage = ({ data }) => {
               <h1 className="">A co dál?</h1>
             </div>
             <BigLetter />
-            <p className="pt-10 pb-4">Aktuální informace na sociálních sítích</p>
+            <p className="pt-10 pb-4">Aktuální informace na instagramu</p>
             <div className="text-red-400 fill-red-400 flex flex-row mx-auto text-5xl w-fit gap-8">
               {/* <a href="" target="_blank"><RiFacebookBoxFill /></a> */}
               <a href="https://www.instagram.com/scala_ve_scale" target="_blank" rel="noreferrer"><RiInstagramFill /></a>

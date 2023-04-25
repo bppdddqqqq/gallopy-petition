@@ -24,7 +24,7 @@ const Petition = () => {
     packet.append("job", form.job)
     packet.append("city", form.city)
     packet.append("consent", form.consent ? '1' : '0')
-    
+
     fetch(`${SERVER_URL}/sign`, {
       method: "POST",
       mode: "cors",
@@ -124,7 +124,7 @@ const Petition = () => {
             </div>
             <label className="mb-2 text-sm font-normal">
               <input type="checkbox" name="consent" value={form.consent} onChange={handleChange} />
-              Souhlasím s tím, aby údaje formuláře byly zveřejněny online v rozsahu jméno, příjmení a povolání na stránkach iniciativy Scala do Scaly.
+              Souhlasím s tím, aby údaje formuláře byly zveřejněny online v rozsahu jméno, příjmení, povolání a města na stránkach iniciativy Scala ve Scale.
             </label>
             <label className='mb-4 text-sm font-normal'>
               <input type="checkbox" name="agreed" value={form.agreed} onChange={handleChange} />

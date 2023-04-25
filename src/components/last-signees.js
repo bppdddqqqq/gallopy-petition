@@ -11,7 +11,7 @@ const LastSignees = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-  
+
       return response.text();
     })
     .then((data) => {
@@ -29,7 +29,7 @@ const LastSignees = () => {
   )
   return (
     <>
-      <h1 className="mt-24">Petici již podepsali</h1>
+      <h1 className="mt-24">Kino Scala podpořili například:</h1>
       <div className="relative flex overflow-x-hidden text-4xl">
         <Dup className="animate-marquee"/>
         <Dup className="animate-marquee2 top-0 absolute"/>
