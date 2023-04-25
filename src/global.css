@@ -54,6 +54,17 @@
     @apply border-red-400 bg-gray-100 p-4;
     @apply w-full;
   }
+  table {
+    @apply w-full;
+    @apply text-red-900;
+  }
+  th {
+    @apply font-bold border-b-2 border-b-red-400 text-xl;
+  }
+  td {
+    @apply bg-red-200;
+    @apply border-b-red-300 border-b-2;
+  }
   label > input[type="text"] {
     @apply mt-2;
   }

@@ -52,12 +52,12 @@ const HomePage = ({ data }) => {
   const { placeholderImage } = data
   const image = getImage(placeholderImage)
   const bg = convertToBgImage(image)
-  console.log(data)
+  // console.log(data)
 
   const scroller = () => {
-    const el = document.querySelector('.petice');
+    const el = document.querySelector('#petition');
     el.scrollIntoView()
-    el.querySelector('button').click()
+    document.querySelector('.petice button').click()
   }
 
   return (
@@ -92,7 +92,8 @@ const HomePage = ({ data }) => {
           <Card header="Kultura" text="Kultura je ve Scale miliónová. Od roku 2013 kino navštívilo přes 1&nbsp;000&nbsp;000 lidí, ať už v rámci projekcí, přednášek, besed nebo jiných akcí, které Scala pravidelně hostí." icon={<CultureSvg className="h-12 w-12" />}  className="md:max-lg:col-start-1 md:max-lg:col-end-3 md:max-lg:mx-auto md:max-lg:w-1/2"/>
         </div>
       </div>
-      <div className="mx-auto mb-4 max-w-5xl px-5 bg-red-100 pb-2 petice">
+      <div className="mx-auto mb-4 max-w-5xl px-5 bg-red-100 pb-2 petice relative">
+        <div className="absolute -top-8" id="petition"/>
         <div className="py-8">
           <h1 className="text-6xl text-left pb-4">Petice</h1>
           <OpenLetter components={{h2: (props) => (<h2 className="text-black text-xl font-normal" {...props}></h2>)}} />

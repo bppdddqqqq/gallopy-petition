@@ -1,16 +1,12 @@
 {
   "menuItems": [
     {
-      "path": "/",
-      "title": "Domov"
+      "path": "/#petition",
+      "title": "Petice"
     },
     {
-      "path": "/iniciativa",
-      "title": "Popis iniciativy"
-    },
-    {
-      "path": "/aktuality",
-      "title": "Aktuality"
+      "path": "/podepsali",
+      "title": "Seznam podpisů"
     }
   ]
 }
