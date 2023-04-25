@@ -96,7 +96,13 @@ router.post('/sign', async (ctx) => {
             to: email,
             subject: "[Scala Petice] Zadost o potvrzeni emailu pro podpis",
             content: ".z",
-            html: `Dobry den, posilame vam informaci, ze jste na nasem webu www.scalavescale.cz podepsal petici a je nutne pro dokonceni podpisu potvrdit email touhle spravou. Pro potvrzeni stlacte odkaz nize <a href='${SERVER_URL}/confirm?email=${email}&token=${token}'>${SERVER_URL}/confirm?email=${email}&token=${token}</a>`,
+            html: `
+            Dobrý den,
+            posílame vám automatizavnou správu, že jste na našem webu www.scalavescale.cz podepsal petici a je nutné pro dokončeni podpisu potvrdit e-mail. Pro potvrzení navštivte následující odkaz <a href='${SERVER_URL}/confirm?email=${email}&token=${token}'>${SERVER_URL}/confirm?email=${email}&token=${token}</a>.
+            
+            S pozdravem, 
+            Inciativa Scala ve Scale
+            `,
         });
         await client.close()
         console.debug('The email should be sent out!: ', email, token)
@@ -122,6 +128,26 @@ router.post('/sign', async (ctx) => {
     }
 });
 
+function generateBody(headline: string, text: string) {
+    return new TextEncoder().encode(`
+      <!doctype html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>${headline}</title>
+        </head>
+        <body>
+          <div style="display: flex; justify-content: center; align-items: center; font-family: Tahoma, sans-serif">
+          <div style="text-align: center">
+           <h1>${headline}</h1>
+           <p>${text}</p>
+           </div>
+          </div>
+        </body>
+      </html>
+`);
+}
+
 router.get('/confirm', async (ctx) => {
     const token = ctx.request.url.searchParams.get('token') || ''
     const email = ctx.request.url.searchParams.get('email') || ''
@@ -138,10 +164,10 @@ router.get('/confirm', async (ctx) => {
         candidate[0].token = ''
         await candidate[0].update()
         
-        ctx.response.body = 'Dekujeme, za potvrzeni emailu, vas hlas byl zaregistrovan do petice!'
+        ctx.response.body = generateBody('Úspěch!', 'Děkujeme, za potvrzení emailu, váš hlas byl zaregistrován do petice!')
         console.debug('Success!')
     } catch {
-        ctx.response.body = 'Chyba! Uz jste petici podepsali!'
+        ctx.response.body = generateBody('Chyba!', 'Chyba! Uz jste petici podepsali!')
         console.debug('Fatal failure!')
     }
 })
