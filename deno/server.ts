@@ -50,7 +50,7 @@ const ipCache = new LRU<any, any>({
     max: 500
     , length: () => 1
     , dispose: (key, n) =>  (0)
-    , maxAge: 1000 * 60 * 15
+    , maxAge: 1000 * 60
   });
 
 const app = new Application();

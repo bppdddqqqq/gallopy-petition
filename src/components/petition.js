@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SERVER_URL } from '../global';
 
 const Petition = () => {
@@ -17,7 +17,7 @@ const Petition = () => {
   })
   const sendToRest = () => {
     const packet = new FormData();
-    console.log(form, form.consent)
+    // console.log(form, form.consent)
     packet.append("firstname", form.firstname)
     packet.append("lastname", form.lastname)
     packet.append("email", form.email)
@@ -48,7 +48,7 @@ const Petition = () => {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event, form)
+    // console.log(event, form)
 
     if (!form.agreed) {
       setError("Neodsouhlasili jste podminky o spracovavani osobnich udaju")
@@ -86,6 +86,12 @@ const Petition = () => {
       [name]: value
     });
   }
+
+  useEffect(() => {
+    if (document.URL.endsWith('#petition')) {
+      setView(true)
+    }
+  })
 
   return (
     <div className='text-center'>
