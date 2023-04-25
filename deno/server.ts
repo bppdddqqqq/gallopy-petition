@@ -96,13 +96,15 @@ router.post('/sign', async (ctx) => {
             to: email,
             subject: "[Scala Petice] Zadost o potvrzeni emailu pro podpis",
             content: ".z",
-            html: `
-            Dobrý den,
-            posílame vám automatizavnou správu, že jste na našem webu www.scalavescale.cz podepsal petici a je nutné pro dokončeni podpisu potvrdit e-mail. Pro potvrzení navštivte následující odkaz <a href='${SERVER_URL}/confirm?email=${email}&token=${token}'>${SERVER_URL}/confirm?email=${email}&token=${token}</a>.
+            html: `Dobrý den,
+Do petice pod názvem Scala ve Scale jsme zaznamenali Váš online podpis! Děkujeme a držme si palce, že naše milované kino zůstane přesně takové, jaké je! Aby váš podpis byl řádne zaznamenán, potřebuje od vás potvrzení formou kliknutí na odkaz níže.
+
+<a href='${SERVER_URL}/confirm?email=${email}&token=${token}'>${SERVER_URL}/confirm?email=${email}&token=${token}</a>.
+
+Nezapomeňte prosím, že tato online petice není právně závazná a že pro širší podporu Scaly je možné podepsat i petici písemnou, právně závaznou. Neváhejte sledovat náš IG - <a href="https://instagram.com/scala_ve_scale/" target="_blank" rel="noreferrer">Scala ve Scale</a>, kde se dozvíte více jak o této petici, tak o dění okolo boje za Scalu.
             
-            S pozdravem, 
-            Inciativa Scala ve Scale
-            `,
+S pozdravem, 
+Inciativa Scala ve Scale`,
         });
         await client.close()
         console.debug('The email should be sent out!: ', email, token)
@@ -174,12 +176,12 @@ router.get('/confirm', async (ctx) => {
 
 const countCache = new Zoic({
     cache: 'LFU',
-    expire: '5m, 3s',
+    expire: '15m, 3s',
     capacity: 15,
 });
 
 router.get('/count', countCache.use, async (ctx) => {
-    ctx.response.body = await Signatures.where('token', '==', '').count()
+    ctx.response.body = await Signatures.where('token', '=', '').count()
 })
 
 router.get('/names', countCache.use, async (ctx) => {
