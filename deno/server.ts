@@ -195,7 +195,7 @@ router.get('/names', countCache.use, async (ctx) => {
 const itemCache = new Zoic({
     cache: 'LFU',
     expire: '60m, 3s',
-    capacity: 15,
+    capacity: 100,
 });
 
 import { isNumber } from "https://deno.land/x/is_number/mod.ts";
@@ -208,7 +208,7 @@ router.get('/fetch/:page', itemCache.use, async (ctx) => {
     const page = Number(ctx?.params?.page)
     const skipOffset = page * 10
     const limit = 10
-    const names = await Signatures.where("consent", true).where("token", "").select("firstName", "lastName", "job").skip(skipOffset).limit(limit).orderBy("id", "desc").get()
+    const names = await Signatures.where("consent", true).where("token", "").select("firstName", "lastName", "job", "city", "created_at").skip(skipOffset).limit(limit).orderBy("id", "desc").get()
     ctx.response.body = JSON.stringify(names)
 })
 
