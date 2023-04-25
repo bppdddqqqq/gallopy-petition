@@ -59,7 +59,7 @@ const Hero = () => (
             >
               <h2 className="text-red-400">Podepsalo:</h2>
               <p className="text-xl my-1 text-center"><Counter /></p>
-              <small>(aktualizace každých 15 min)</small>
+              <small>(aktualizováno každých 15 min.)</small>
             </div>
             <div className="justify-self-center self-center">
               <RiPenNibFill className="text-6xl text-red-400" />
