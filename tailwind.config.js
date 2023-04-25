@@ -25,6 +25,20 @@ module.exports = {
       serif: ["Merriweather", "serif"],
     },
     extend: {
+      animation: {
+        marquee: 'marquee 25s linear infinite',
+        marquee2: 'marquee2 25s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        marquee2: {
+          '0%': { transform: 'translateX(101%)' },
+          '100%': { transform: 'translateX(1%)' },
+        },
+      },
       spacing: {
         128: "32rem",
         144: "36rem",

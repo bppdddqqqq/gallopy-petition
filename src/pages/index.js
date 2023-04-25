@@ -16,6 +16,7 @@ import EduSvg from '../../static/assets/edu.svg';
 import LoveSvg from '../../static/assets/heart.svg';
 import LeftSide from '../../static/assets/left-side.svg';
 import RightSide from '../../static/assets/right-side.svg';
+import LastSignees from '../components/last-signees'
 
 
 export const pageQuery = graphql`
@@ -100,6 +101,7 @@ const HomePage = ({ data }) => {
           <Petition />
         </div>
       </div>
+      <LastSignees />
       <div className="relative w-100 overflow-hidden mb-16">
         <div className='container mx-auto bg-white lg:p-8 max-w-4xl border-b-4 border-b-red-400 lg:text-center'>
             <div className="text-center p-8 px-24">
