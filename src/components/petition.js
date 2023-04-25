@@ -140,8 +140,8 @@ const Petition = () => {
             <input type="submit" value="Odevzdat" />
           </form>
         </div>
-        <div className={"py-6 " + (uploaded ? "block" : "hidden")}>
-          <h1 className="text-black">Děkujeme za podporu naší petice a zejména za podporu kina Scala! Na Vaši e-mailovou adresu jsme odeslali ověřovací e-mail, kterým svůj hlas v petici potvrdíte. Pokud jej nevidíte, může se nacházet ve spamu.</h1>
+        <div className={"py-6 px-4 " + (uploaded ? "block" : "hidden")}>
+          <h1 className="text-black text-left text-1xl">Děkujeme za podporu naší petice a zejména za podporu kina Scala! Na Vaši e-mailovou adresu jsme odeslali ověřovací e-mail, kterým svůj hlas v petici potvrdíte. Pokud jej nevidíte, může se nacházet ve spamu.</h1>
         </div>
       </div>
     </div>

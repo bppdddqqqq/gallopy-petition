@@ -1,6 +1,10 @@
 {
   "menuItems": [
     {
+      "path": "/#top",
+      "title": "Domů"
+    },
+    {
       "path": "/#petition",
       "title": "Petice"
     },

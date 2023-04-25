@@ -62,7 +62,7 @@ const HomePage = ({ data }) => {
 
   return (
     <Layout className='text-left min-h-[80vh]'>
-      <div className="">
+      <div className="" id="top">
         <BackgroundImage
           {...bg}
           preserveStackingContext

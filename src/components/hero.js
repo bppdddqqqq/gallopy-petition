@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { RiPenNibFill } from 'react-icons/ri';
+import { FaPenNib as RiPenNibFill } from 'react-icons/fa';
 import { SERVER_URL } from '../global';
 import ScalaLogo from '../../static/assets/scala-logo.svg'
 
@@ -61,7 +61,7 @@ const Hero = () => (
               <p className="text-xl"><Counter /></p>
             </div>
             <div className="justify-self-center self-center">
-              <RiPenNibFill className="text-6xl" />
+              <RiPenNibFill className="text-6xl text-red-400" />
             </div>
           </div>
         </div>
