@@ -52,7 +52,7 @@ const Petition = () => {
     // console.log(event, form)
 
     if (!form.agreed) {
-      setError("Neodsouhlasili jste podmínky o spracování osobních údajů")
+      setError("Neodsouhlasili jste podmínky o zpracování osobních údajů")
       return;
     }
     if (!form.firstname) {
@@ -135,7 +135,7 @@ const Petition = () => {
             </label>
             <label className='mb-4 text-sm font-normal'>
               <input type="checkbox" name="agreed" value={form.agreed} onChange={handleChange} />
-              Souhlasím s podmínkami o <Link to="/podminky"><u>Spracovávaní osobních údajů</u></Link> (<b>Povinné</b>)
+              Souhlasím s podmínkami o <Link to="/podminky"><u>Zpracovávaní osobních údajů</u></Link> (<b>Povinné</b>)
             </label>
 
             <input type="submit" value="Odevzdat" />
