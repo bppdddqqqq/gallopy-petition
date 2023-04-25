@@ -44,6 +44,15 @@ import { Zoic } from "https://deno.land/x/zoic/zoic.ts";
 import { SmtpClient } from "https://deno.land/x/smtp/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
+import LRU from "https://deno.land/x/lru_cache@6.0.0-deno.4/mod.ts";
+
+const ipCache = new LRU<any, any>({
+    max: 500
+    , length: () => 1
+    , dispose: (key, n) =>  (0)
+    , maxAge: 1000 * 60 * 15
+  });
+
 const app = new Application();
 const router = new Router();
 
@@ -66,6 +75,12 @@ router.post('/sign', async (ctx) => {
         if (!emailValid(email) || await Signatures.where("email", email).select("email").count() > 0) {
             console.debug('Incorrect email or existing: ', email)
             ctx.response.body = 'Zlý format e-mailu nebo e-mail byl už registrován na jiný podpis!';
+            return;
+        }
+
+        if (ipCache.get(ctx.request.ip) === 'marked') {
+            console.debug('Bounce back, accessed IP: ', ctx.request.ip)
+            ctx.response.body = 'IP adresa již byla použita v jiné predošlé žádosti, počkejte prosím!';
             return;
         }
 
@@ -95,6 +110,9 @@ Inciativa Scala ve Scale`,
         });
         await client.close()
         console.debug('The email should be sent out!: ', email, token)
+        console.debug('Marking IP as tainted: ', ctx.request.ip)
+        ipCache.set(ctx.request.ip, 'marked')
+        console.debug('Marked!:', ctx.request.ip)
         console.debug('Writing data to database: ', formData)
         await Signatures.create({
             firstName: firstname,
@@ -107,6 +125,7 @@ Inciativa Scala ve Scale`,
             city,
         })
         console.debug('Done!', formData)
+        
         
         ctx.response.body = 'ok';
     } else {
@@ -176,7 +195,7 @@ router.get('/names', countCache.use, async (ctx) => {
 const itemCache = new Zoic({
     cache: 'LFU',
     expire: '60m, 3s',
-    capacity: 15,
+    capacity: 100,
 });
 
 import { isNumber } from "https://deno.land/x/is_number/mod.ts";
@@ -189,7 +208,7 @@ router.get('/fetch/:page', itemCache.use, async (ctx) => {
     const page = Number(ctx?.params?.page)
     const skipOffset = page * 10
     const limit = 10
-    const names = await Signatures.where("consent", true).where("token", "").select("firstName", "lastName", "job").skip(skipOffset).limit(limit).orderBy("id", "desc").get()
+    const names = await Signatures.where("consent", true).where("token", "").select("firstName", "lastName", "job", "city", "created_at").skip(skipOffset).limit(limit).orderBy("id", "desc").get()
     ctx.response.body = JSON.stringify(names)
 })
 
