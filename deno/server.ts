@@ -96,7 +96,7 @@ router.post('/sign', async (ctx) => {
         await client.send({
             from: "scala.noreply@gmail.com",
             to: email,
-            subject: "[Scala Petice] Žádost o ověření podpisu",
+            subject: "[Scala Petice] Zadost o overeni podpisu",
             content: ".z",
             html: `Dobrý den,<br />
 Do petice pod názvem Scala ve Scale jsme zaznamenali Váš online podpis! Děkujeme a držme si palce, že naše milované kino zůstane přesně takové, jaké je! Aby váš podpis byl řádne zaznamenán, potřebuje od vás potvrzení formou kliknutí na odkaz níže.<br />

@@ -23,8 +23,9 @@ const LastSignees = () => {
     return (<></>);
   }
   const Dup = ({className=''}) => (
-    <div className={"py-8 whitespace-nowrap "+className}>
+    <div className={"py-8 whitespace-nowrap select-none "+className}>
       {signees.map(({firstname, lastname, job}) => <span> {firstname} {lastname} <span className="text-2xl align-super">({job})</span> </span>)}
+      {signees.map(({firstname, lastname, job}) => <span> {firstname} {lastname} <span className="text-2xl align-super">({job})</span> </span>)}      
     </div>
   )
   return (
