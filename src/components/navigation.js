@@ -29,23 +29,15 @@ class Navigation extends React.Component {
         className="flex sticky top-0 justify-between items-center px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 z-[5000] bg-red-400 shadow-md"
       >
         <div className="flex flex-row justify-between w-full">
-          {/* <div className="flex flex-row my-auto font-bold">
-            <Link className="inline justify-center pl-1 mx-0 my-auto font-sans text-2xl font-bold text-white" to="/"><p>Za Scalu v Scale</p></Link>
-          </div> */}
           <nav id="nav" className="my-auto max-lg:ml-auto">
-            {/* <button onClick={this.handleToggleClick} className={"hidden text-2xl bg-none border-none white max-lg:flex group peer" + (this.state.showMenu ? " is-active" : "")}>
-              <div className="text-white flex group-[.is-active]:hidden"><RiMenu3Line/></div>
-              <div className="text-white hidden group-[.is-active]:flex"><RiCloseLine/></div>
-            </button> */}
-            {/* max-lg:hidden peer-[.is-active]:block max-lg:absolute max-lg:right-0 max-lg:top-full max-lg:z-10 max-lg:w-full max-lg:max-w-xs max-lg:rounded-bl-md max-lg:overflow-hidden max-lg:bg-black */}
-            <ul className="p-0 m-0 list-none">
+            {/* <ul className="p-0 m-0 list-none">
               {listMenuItems}
-            </ul>
+            </ul> */}
           </nav>
           <div className="my-auto ml-auto text-white">
             <div className="flex gap-4 text-3xl">
-              <RiFacebookBoxFill />
-              <RiInstagramFill />
+              {/* <a href="" target="_blank"><RiFacebookBoxFill /></a> */}
+              <a href="https://www.instagram.com/scala_ve_scale" target="_blank"><RiInstagramFill /></a>
             </div>
           </div>
         </div>

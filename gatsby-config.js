@@ -44,7 +44,12 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        icon: 'static/favicon.png'
+      }
+    },
     'gatsby-plugin-postcss',
     `gatsby-plugin-image`,
     {
@@ -54,25 +59,42 @@ module.exports = {
         specialChars: '/:',
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/
+        }
+      }
+    },
     // {
-    //   resolve: 'gatsby-plugin-react-svg',
+    //   resolve: 'gatsby-plugin-favicons',
     //   options: {
-    //     rule: {
-    //       include: /assets/
+    //     logo: './static/assets/favicon.png',
+    //     appName: 'Scala ve Scale',
+    //     background: '#fff',
+    //     icons: {
+    //       android: true,
+    //       appleIcon: true,
+    //       appleStartup: true,
+    //       coast: false,
+    //       favicons: true,
+    //       yandex: false,
+    //       windows: false
     //     }
     //   }
-    // },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `TEDxMasarykUniversity`,
-    //     short_name: `TEDxMasarykUniversity`,
-    //     start_url: `/`,
-    //     background_color: `#f7f0eb`,
-    //     theme_color: `#E62B1E`,
-    //     display: `standalone`,
-    //     icon: "static" + settings.meta.iconimage,
-    //   },
-    // },
+    // }
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Scala ve Scale`,
+        short_name: `Scala ve Scale`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#B22828`,
+        display: `standalone`,
+        icon: "static/assets/gatsby-icon.png",
+      },
+    },
   ],
 }

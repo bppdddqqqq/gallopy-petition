@@ -55,18 +55,6 @@ const ipCache = new LRU<string, string>({
     , maxAge: 1000 * 15
 });
 
-import { readCSVObjects } from "https://deno.land/x/csv/mod.ts";
-
-let awsUsername = '';
-let awsPassword = ''
-if (env.get('DENO_PRODUCTION_MODE') != 'TRUE') {
-    const f = await Deno.open("./credentials.csv");
-    for await (const obj of readCSVObjects(f)) {
-        awsUsername = obj['Smtp Username']
-        awsPassword = obj['Smtp Password\r']
-    }
-}
-
 const client = new SmtpClient();
 
 router.get('/', (ctx) => {
@@ -100,8 +88,8 @@ router.post('/sign', async (ctx) => {
         await client.connectTLS({
             hostname: env.get('DENO_SERV') || "email-smtp.us-east-1.amazonaws.com",
             port: env.get('DENO_PORT') || 465,
-            username: env.get('DENO_USER') || awsUsername,
-            password: env.get('DENO_PASS') || awsPassword,
+            username: env.get('DENO_USER'),
+            password: env.get('DENO_PASS'),
           }).then(() => console.log('SMTP connected!'));
         await client.send({
             from: "scala.noreply@gmail.com",

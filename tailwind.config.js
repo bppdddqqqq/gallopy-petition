@@ -37,7 +37,8 @@ module.exports = {
         'red': {
           '600': '#661616',
           '400': '#B22828',
-          '200': '#E9D7D7',
+          '100': '#FFFBFB',
+          '200': '#FFECEC',
           '300': '#FED0D0'
         }
       },
@@ -65,6 +66,7 @@ module.exports = {
         },
         h2: {
           fontSize: theme("fontSize.2xl"),
+          color: theme("colors.red.400"),
           fontWeight: theme("fontWeight.bold"),
           textAlign: "center",
         },

@@ -88,9 +88,9 @@ const Petition = () => {
   }
 
   return (
-    <div className=''>
+    <div className='text-center'>
       <button className="" onClick={() => setView(!view)}>Podepsat</button>
-      <div className={"mt-8 p-2 border-2 border-dashed bg-white w-fit "+(view || uploaded ? "block" : "hidden")}>
+      <div className={"mt-8 p-2 border-2 border-dashed text-left bg-white w-fit "+(view || uploaded ? "block" : "hidden")}>
         <div className={(view && !uploaded ? "block" : "hidden")}>
           <div className={'bg-red-500 p-4 text-white mb-4 ' + (error !== '' ? 'block' : 'hidden')}>
             {error}
