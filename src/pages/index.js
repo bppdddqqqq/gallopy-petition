@@ -7,7 +7,7 @@ import OpenLetter from '../content/index/openletter.mdx'
 import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image-es5'
 import Hero from '../components/hero'
-import { RiFacebookBoxFill, RiInstagramFill } from 'react-icons/ri'
+import { RiInstagramFill } from 'react-icons/ri'
 import Petition from '../components/petition'
 import { SEO } from '../components/seo'
 import BigLetter from '../content/index/bigletter.mdx'
@@ -100,16 +100,16 @@ const HomePage = ({ data }) => {
           <Petition />
         </div>
       </div>
-      <div className="relative w-100 overflow-hidden lg:mb-16">
-        <div className='container mx-auto bg-white p-8 max-w-4xl border-b-4 border-b-red-400 text-center'>
+      <div className="relative w-100 overflow-hidden mb-16">
+        <div className='container mx-auto bg-white lg:p-8 max-w-4xl border-b-4 border-b-red-400 lg:text-center'>
             <div className="text-center p-8 px-24">
-              <h1 className="">Jaká je současná situace?</h1>
+              <h1 className="">A co dál?</h1>
             </div>
             <BigLetter />
             <p className="pt-10 pb-4">Aktuální informace na sociálních sítích</p>
             <div className="text-red-400 fill-red-400 flex flex-row mx-auto text-5xl w-fit gap-8">
               {/* <a href="" target="_blank"><RiFacebookBoxFill /></a> */}
-              <a href="https://www.instagram.com/scala_ve_scale" target="_blank"><RiInstagramFill /></a>
+              <a href="https://www.instagram.com/scala_ve_scale" target="_blank" rel="noreferrer"><RiInstagramFill /></a>
             </div>
         </div>
       </div>

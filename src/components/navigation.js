@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from "gatsby"
-import { RiInstagramFill, RiFacebookBoxFill } from 'react-icons/ri';
-import navigatorJson from '../util/navigator.json'
+// import { Link } from "gatsby"
+import { RiInstagramFill } from 'react-icons/ri';
+// import navigatorJson from '../util/navigator.json'
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -17,13 +17,13 @@ class Navigation extends React.Component {
   }
 
   render () {
-    const listMenuItems = navigatorJson.menuItems.map((menuItem, index) => 
-      <li key={index} className="inline-block mr-5"> {/*max-lg:block max-lg:ml-0*/}
-        <Link to={menuItem.path} className="h-0 text-gray-300 hover:text-white max-lg:block aria-[current=page]:text-white">{/*max-lg:p-5*/}
-          {menuItem.title}
-        </Link>
-      </li>
-    )
+    // const listMenuItems = navigatorJson.menuItems.map((menuItem, index) => 
+    //   <li key={index} className="inline-block mr-5"> {/*max-lg:block max-lg:ml-0*/}
+    //     <Link to={menuItem.path} className="h-0 text-gray-300 hover:text-white max-lg:block aria-[current=page]:text-white">{/*max-lg:p-5*/}
+    //       {menuItem.title}
+    //     </Link>
+    //   </li>
+    // )
     return (
       <header 
         className="flex sticky top-0 justify-between items-center px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 z-[5000] bg-red-400 shadow-md"
@@ -37,7 +37,7 @@ class Navigation extends React.Component {
           <div className="my-auto ml-auto text-white">
             <div className="flex gap-4 text-3xl">
               {/* <a href="" target="_blank"><RiFacebookBoxFill /></a> */}
-              <a href="https://www.instagram.com/scala_ve_scale" target="_blank"><RiInstagramFill /></a>
+              <a href="https://www.instagram.com/scala_ve_scale" target="_blank" rel="noreferrer"><RiInstagramFill /></a>
             </div>
           </div>
         </div>

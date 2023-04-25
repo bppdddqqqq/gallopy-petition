@@ -52,6 +52,7 @@
     @apply border-2 border-t-0 border-x-0;
     @apply block;
     @apply border-red-400 bg-gray-100 p-4;
+    @apply w-full;
   }
   label > input[type="text"] {
     @apply mt-2;
