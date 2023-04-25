@@ -194,7 +194,7 @@ router.get('/names', countCache.use, async (ctx) => {
 
 const itemCache = new Zoic({
     cache: 'LFU',
-    expire: '60m, 3s',
+    expire: '15m, 3s',
     capacity: 100,
 });
 
