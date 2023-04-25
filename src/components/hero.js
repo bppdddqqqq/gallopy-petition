@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { RiPenNibFill } from 'react-icons/ri';
 import { SERVER_URL } from '../global';
-import { StaticImage } from 'gatsby-plugin-image';
+import ScalaLogo from '../../static/assets/scala-logo.svg'
 
 const Counter = () => {
   let [count, setCount] = useState(null)
@@ -50,7 +50,7 @@ const Hero = () => (
           <RiArrowRightSLine />
         </span>
       </Link> */}
-      <StaticImage src='../../static/assets/scala_logo.png' className='h-40 w-full' objectFit='contain'/>
+      <ScalaLogo className="h-40" />
       <div className="absolute right-0 left-0 -bottom-8">
         <div className="flex justify-center">
           <div className="flex gap-8 px-8 py-6 bg-white shadow-md">
