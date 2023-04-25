@@ -109,11 +109,6 @@ const HomePage = ({ data }) => {
               <h1 className="">A co dál?</h1>
             </div>
             <BigLetter />
-            <p className="pt-10 pb-4">Aktuální informace na instagramu</p>
-            <div className="text-red-400 fill-red-400 flex flex-row mx-auto text-5xl w-fit gap-8">
-              {/* <a href="" target="_blank"><RiFacebookBoxFill /></a> */}
-              <a href="https://www.instagram.com/scala_ve_scale" target="_blank" rel="noreferrer"><RiInstagramFill /></a>
-            </div>
         </div>
       </div>
     </Layout>

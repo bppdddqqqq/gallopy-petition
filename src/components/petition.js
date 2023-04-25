@@ -51,7 +51,7 @@ const Petition = () => {
     // console.log(event, form)
 
     if (!form.agreed) {
-      setError("Neodsouhlasili jste podminky o spracovavani osobnich udaju")
+      setError("Neodsouhlasili jste podmínky o spracování osobních údajů")
       return;
     }
     if (!form.firstname) {
@@ -71,7 +71,7 @@ const Petition = () => {
       return;
     }
     if (!form.email || !form.confirmemail || form.email !== form.confirmemail) {
-      setError('Nesprávní mailová adresa')
+      setError('Nesprávná e-mailová adresa')
       return;
     }
     setError("")
@@ -141,7 +141,7 @@ const Petition = () => {
           </form>
         </div>
         <div className={"py-6 " + (uploaded ? "block" : "hidden")}>
-          <h1 className="text-black">Petice odeslána. Byl odeslán potvrzovací e-mail na nastavenou adresu pro ověření, e-mail může být nalezen ve spamu.</h1>
+          <h1 className="text-black">Děkujeme za podporu naší petice a zejména za podporu kina Scala! Na Vaši e-mailovou adresu jsme odeslali ověřovací e-mail, kterým svůj hlas v petici potvrdíte. Pokud jej nevidíte, může se nacházet ve spamu.</h1>
         </div>
       </div>
     </div>

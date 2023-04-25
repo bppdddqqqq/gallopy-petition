@@ -23,7 +23,7 @@ const PodepsaliPage = ({ data }) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-  
+
       return response.text();
     })
     .then((data) => {
@@ -47,8 +47,8 @@ const PodepsaliPage = ({ data }) => {
 	return (
 		<Layout>
 			<div className="mx-auto my-0 mt-8 max-w-6xl">
-				<h1>Již podepsali</h1>
-				<p></p>
+				<h1>Petici podepsali tito Scalní fanoušci:</h1>
+				<p>Tabulka zobrazuje pouze jména osob, které souhlasily se zveřejněním svých osobních údajů, počet respondentů níže se tak nemusí shodovat s celkovým počtem podporovatelů. Celkem jsme již tedy nasbírali 28 elektronických podpisů.</p>
 				<div className="p-5 shadow-md">
 				<table>
 					<thead>
