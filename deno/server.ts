@@ -96,14 +96,14 @@ router.post('/sign', async (ctx) => {
             to: email,
             subject: "[Scala Petice] Zadost o potvrzeni emailu pro podpis",
             content: ".z",
-            html: `Dobrý den,
-Do petice pod názvem Scala ve Scale jsme zaznamenali Váš online podpis! Děkujeme a držme si palce, že naše milované kino zůstane přesně takové, jaké je! Aby váš podpis byl řádne zaznamenán, potřebuje od vás potvrzení formou kliknutí na odkaz níže.
-
-<a href='${SERVER_URL}/confirm?email=${email}&token=${token}'>${SERVER_URL}/confirm?email=${email}&token=${token}</a>.
-
-Nezapomeňte prosím, že tato online petice není právně závazná a že pro širší podporu Scaly je možné podepsat i petici písemnou, právně závaznou. Neváhejte sledovat náš IG - <a href="https://instagram.com/scala_ve_scale/" target="_blank" rel="noreferrer">Scala ve Scale</a>, kde se dozvíte více jak o této petici, tak o dění okolo boje za Scalu.
-            
-S pozdravem, 
+            html: `Dobrý den,<br />
+Do petice pod názvem Scala ve Scale jsme zaznamenali Váš online podpis! Děkujeme a držme si palce, že naše milované kino zůstane přesně takové, jaké je! Aby váš podpis byl řádne zaznamenán, potřebuje od vás potvrzení formou kliknutí na odkaz níže.<br />
+<br />
+<a href='${SERVER_URL}/confirm?email=${email}&token=${token}'>${SERVER_URL}/confirm?email=${email}&token=${token}</a><br />
+<br />
+Nezapomeňte prosím, že tato online petice není právně závazná a že pro širší podporu Scaly je možné podepsat i petici písemnou, právně závaznou. Neváhejte sledovat náš IG - <a href="https://instagram.com/scala_ve_scale/" target="_blank" rel="noreferrer">Scala ve Scale</a>, kde se dozvíte více jak o této petici, tak o dění okolo boje za Scalu.<br />
+<br />
+S pozdravem,<br />
 Inciativa Scala ve Scale`,
         });
         await client.close()
