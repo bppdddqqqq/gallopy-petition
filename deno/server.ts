@@ -167,7 +167,7 @@ router.get('/confirm', async (ctx) => {
         ctx.response.body = generateBody('Úspěch!', 'Děkujeme, za potvrzení emailu, váš hlas byl zaregistrován do petice!')
         console.debug('Success!')
     } catch {
-        ctx.response.body = generateBody('Chyba!', 'Chyba! Uz jste petici podepsali!')
+        ctx.response.body = generateBody('Chyba!', 'Chyba! Už jste petici podepsali nebo je odkaz neplatný!')
         console.debug('Fatal failure!')
     }
 })
@@ -179,7 +179,7 @@ const countCache = new Zoic({
 });
 
 router.get('/count', countCache.use, async (ctx) => {
-    ctx.response.body = await Signatures.where('token', '').count()
+    ctx.response.body = await Signatures.where('token', '==', '').count()
 })
 
 router.get('/names', countCache.use, async (ctx) => {
