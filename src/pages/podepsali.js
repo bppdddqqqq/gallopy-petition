@@ -68,7 +68,7 @@ const PodepsaliPage = ({ data }) => {
 									<td>{lastname}</td>
 									<td>{job}</td>
 									<td>{city}</td>
-									<td>{createdAt}</td>
+									<td>{new Date(createdAt+ " UTC").toLocaleString("cs-CZ", {timeZone: "Europe/Prague"})}</td>
 								</tr>
 							))
 						}
