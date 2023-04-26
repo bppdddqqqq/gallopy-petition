@@ -35,12 +35,15 @@ const PodepsaliPage = ({ data }) => {
 			} else {
 				setPages(pages + 1)
 			}
-			if (signees.length > 0 && signees[signees.length-1].createdAt === array[0].createdAt) {
-        setSignees([...signees, ...array.slice(1)])
-			} else {
-				setSignees([...signees, ...array])	
+			for (let i = 0; i < Math.min(array.length, signees.length); i++) {
+				// console.log(signees[signees.length-(i+1)], array[0], i)
+				if (signees[signees.length-(i+1)].createdAt === array[0].createdAt) {
+					setSignees([...signees, ...array.slice(i+1)])
+					return;
+				}
 			}
-			console.log(data, pages)
+			setSignees([...signees, ...array])
+			// console.log(data, pages)
     });
 	}
 
