@@ -258,6 +258,6 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 logger.debug('Server should be running! <star>')
 
-await app.listen({port: 8080})
+// await app.listen({port: 8080})
 app.listen({ port: 443, certFile: '/etc/letsencrypt/live/pocitadlo.scalavescale.cz/cert.pem', keyFile: '/etc/letsencrypt/live/pocitadlo.scalavescale.cz/privkey.pem' });
 await app.listen({ port: 8080, certFile: '/etc/letsencrypt/live/pocitadlo.scalavescale.cz/cert.pem', keyFile: '/etc/letsencrypt/live/pocitadlo.scalavescale.cz/privkey.pem' });
