@@ -45,12 +45,14 @@ import * as log from "https://deno.land/std/log/mod.ts";
 
 await log.setup({
     handlers: {
-      console: new log.handlers.ConsoleHandler("DEBUG"),
+      console: new log.handlers.ConsoleHandler("DEBUG", {
+        formatter: "[{datetime}] {levelName} {msg}",
+      }),
   
       file: new log.handlers.FileHandler("DEBUG", {
         filename: "./log.txt",
         // you can change format of output message using any keys in `LogRecord`.
-        formatter: "{levelName} {msg}",
+        formatter: "[{datetime}] {levelName} {msg}",
       }),
     },
   
@@ -86,7 +88,7 @@ router.post('/sign', async (ctx) => {
         const formData = await value.read();
         // the form data is fully available
         const { fields } = formData;
-        logger.debug('Attempted request:', formData)
+        logger.debug(`Attempted request from ${ctx.request.ip} ${JSON.stringify(formData)}` )
         const email = fields.email.trim()
         const firstname = fields.firstname.trim()
         const lastname = fields.lastname.trim()
@@ -94,18 +96,18 @@ router.post('/sign', async (ctx) => {
         const city = fields.city.trim()
 
         if (email == '' || firstname == '' || lastname == '' || job == '' || city == '') {
-            logger.debug('Empty inputs', `"${email}", "${firstname}" "${lastname}" "${job}" "${city}"`)
+            logger.debug(`Empty inputs "${email}", "${firstname}" "${lastname}" "${job}" "${city}"`)
         }
         
 
         if (!emailValid(email) || await Signatures.where("email", email).select("email").count() > 0) {
-            logger.debug('Incorrect email or existing: ', email)
+            logger.debug(`Incorrect email or existing: ${email}`)
             ctx.response.body = 'Špatný formát e-mailu, nebo e-mail byl již registrován na jiný podpis!';
             return;
         }
 
         if (ipCache.get(ctx.request.ip) === 'marked') {
-            logger.debug('Bounce back, accessed IP: ', ctx.request.ip)
+            logger.debug(`Bounce back, accessed IP: ${ctx.request.ip}`)
             ctx.response.body = 'IP adresa již byla použita v jiné žádosti, počkejte prosím!';
             return;
         }
@@ -113,14 +115,14 @@ router.post('/sign', async (ctx) => {
         const consent = (fields.consent === "1");
         const token = uuid.v1.generate().toString();
 
-        logger.debug('Sending email token for: ', email, 'with token: ', token)
+        logger.debug(`Sending email token for: "${email}" with token: ${token}`)
         const client = new SmtpClient();
         await client.connectTLS({
             hostname: env.get('DENO_SERV') || '',
             port: Number(env.get('DENO_PORT') || 465),
             username: env.get('DENO_USER') || '',
             password: env.get('DENO_PASS') || '',
-        }).then(() => logger.log('SMTP connected!'));
+        }).then(() => logger.debug('SMTP connected!'));
 
         const blob = {
             firstName: firstname,
@@ -148,13 +150,13 @@ S pozdravem,<br />
 Inciativa Scala ve Scale`,
         });
         await client.close()
-        logger.debug('The email should be sent out!: ', email, token)
-        logger.debug('Marking IP as tainted: ', ctx.request.ip)
+        logger.debug(`The email should be sent out!: ${email}, ${token}`)
+        logger.debug(`Marking IP as tainted: ${ctx.request.ip}`)
         ipCache.set(ctx.request.ip, 'marked')
-        logger.debug('Marked!:', ctx.request.ip)
-        logger.debug('Writing data to database: ', blob)
+        logger.debug(`Marked!: ${ctx.request.ip}`)
+        logger.debug(`Writing data to database: ${JSON.stringify(blob)}`)
         await Signatures.create(blob)
-        logger.debug('Done!', blob)
+        logger.debug(`Done! ${JSON.stringify(blob)}`)
 
 
         ctx.response.body = 'ok';
@@ -190,7 +192,7 @@ function generateBody(headline: string, text: string) {
 router.get('/confirm', async (ctx) => {
     const token = (ctx.request.url.searchParams.get('token') || '').trim()
     const email = (ctx.request.url.searchParams.get('email') || '').trim()
-    logger.debug("Token confirmation request: ", email, token, ctx.request.ip)
+    logger.debug(`Token confirmation request: ${email}, ${token}, ${ctx.request.ip}`)
     if (email == '' || token == '' || !emailValid(email)) {
         ctx.response.body = 'Zlá žádost!';
         logger.debug('Fail!')
@@ -209,10 +211,10 @@ router.get('/confirm', async (ctx) => {
         await candidate[0].update()
 
         ctx.response.body = generateBody('Úspěch!', 'Děkujeme za potvrzení e-mailu, Váš hlas byl zaregistrován do petice!')
-        logger.debug('Success!', email, token)
+        logger.debug(`Success! ${email}, ${token}`)
     } catch {
         ctx.response.body = generateBody('Chyba!', 'Neznama chyba!')
-        logger.debug('Fatal failure!', email, token)
+        logger.debug(`Fatal failure! "${email}", "${token}"`)
     }
 })
 
@@ -256,6 +258,6 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 logger.debug('Server should be running! <star>')
 
-// await app.listen({port: 8080})
+await app.listen({port: 8080})
 app.listen({ port: 443, certFile: '/etc/letsencrypt/live/pocitadlo.scalavescale.cz/cert.pem', keyFile: '/etc/letsencrypt/live/pocitadlo.scalavescale.cz/privkey.pem' });
 await app.listen({ port: 8080, certFile: '/etc/letsencrypt/live/pocitadlo.scalavescale.cz/cert.pem', keyFile: '/etc/letsencrypt/live/pocitadlo.scalavescale.cz/privkey.pem' });
