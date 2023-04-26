@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import { SEO } from "../components/seo"
+import { isStringLiteralOrJsxExpression } from 'typescript';
 
 export const pageQuery = graphql`
   query PodepsaliQuery {
@@ -27,12 +28,21 @@ const PodepsaliPage = ({ data }) => {
       return response.text();
     })
     .then((data) => {
-      setSignees([...signees, ...JSON.parse(data)])
+			const array = JSON.parse(data)
 			if (data === '[]') {
 				setPages(-1)
+				return;
 			} else {
 				setPages(pages + 1)
 			}
+			for (let i = 0; i < Math.min(array.length, signees.length); i++) {
+				// console.log(signees[signees.length-(i+1)], array[0], i)
+				if (signees[signees.length-(i+1)].createdAt === array[0].createdAt) {
+					setSignees([...signees, ...array.slice(i+1)])
+					return;
+				}
+			}
+			setSignees([...signees, ...array])
 			// console.log(data, pages)
     });
 	}
@@ -49,7 +59,7 @@ const PodepsaliPage = ({ data }) => {
 			<div className="mx-auto my-0 mt-8 max-w-6xl">
 				<h1>Petici podepsali tito Scalní fanoušci:</h1>
 				<p>Tabulka zobrazuje pouze jména osob, které souhlasily se zveřejněním svých osobních údajů, počet respondentů níže se tak nemusí shodovat s celkovým počtem podporovatelů. Počítadlo je aktualizováno každých 15 minut.</p>
-				<div className="p-5 shadow-md overflow-y-auto">
+				<div className="lg:px-5 my-5 lg:shadow-md overflow-y-auto overflow-x-scroll w-full">
 				<table>
 					<thead>
 						<tr>
