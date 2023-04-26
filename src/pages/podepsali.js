@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import { SEO } from "../components/seo"
+import { isStringLiteralOrJsxExpression } from 'typescript';
 
 export const pageQuery = graphql`
   query PodepsaliQuery {
@@ -27,13 +28,19 @@ const PodepsaliPage = ({ data }) => {
       return response.text();
     })
     .then((data) => {
-      setSignees([...signees, ...JSON.parse(data)])
+			const array = JSON.parse(data)
 			if (data === '[]') {
 				setPages(-1)
+				return;
 			} else {
 				setPages(pages + 1)
 			}
-			// console.log(data, pages)
+			if (signees.length > 0 && signees[signees.length-1].createdAt === array[0].createdAt) {
+        setSignees([...signees, ...array.slice(1)])
+			} else {
+				setSignees([...signees, ...array])	
+			}
+			console.log(data, pages)
     });
 	}
 
