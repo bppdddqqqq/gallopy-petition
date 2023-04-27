@@ -17,15 +17,30 @@ const Petition = () => {
     consent: '',
     agreed: '',
   })
+
+  const cleanForm = (obj) => {
+    const res = {};
+    res.firstname = obj.firstname.trim();
+    res.lastname = obj.lastname.trim();
+    res.email = obj.email.trim();
+    res.job = obj.job.trim();
+    res.city = obj.city.trim();
+    res.confirmemail = obj.confirmemail.trim();
+    res.consent = obj.consent;
+    res.agreed = obj.agreed;
+    
+    return res;
+  }
   const sendToRest = () => {
     const packet = new FormData();
+    const newForm = cleanForm(form)
     // console.log(form, form.consent)
-    packet.append("firstname", form.firstname)
-    packet.append("lastname", form.lastname)
-    packet.append("email", form.email)
-    packet.append("job", form.job)
-    packet.append("city", form.city)
-    packet.append("consent", form.consent ? '1' : '0')
+    packet.append("firstname", newForm.firstname)
+    packet.append("lastname", newForm.lastname)
+    packet.append("email", newForm.email)
+    packet.append("job", newForm.job)
+    packet.append("city", newForm.city)
+    packet.append("consent", newForm.consent ? '1' : '0')
 
     fetch(`${SERVER_URL}/sign`, {
       method: "POST",
@@ -52,31 +67,33 @@ const Petition = () => {
     event.preventDefault();
     // console.log(event, form)
 
-    if (!form.agreed) {
+    const newForm = cleanForm(form)
+
+    if (!newForm.agreed) {
       setError("Neodsouhlasili jste podmínky o zpracování osobních údajů")
       return;
     }
-    if (!form.firstname) {
+    if (!newForm.firstname) {
       setError('Chybí jméno')
       return;
     }
-    if (!form.lastname) {
+    if (!newForm.lastname) {
       setError('Chybí příjmení')
       return;
     }
-    if (!form.job) {
+    if (!newForm.job) {
       setError('Chybí povolání')
       return;
     }
-    if (!form.city) {
+    if (!newForm.city) {
       setError('Chybí město')
       return;
     }
-    if (IsEmail(form.firstname) || IsEmail(form.lastname) || IsEmail(form.job) || IsEmail(form.city)) {
+    if (IsEmail(newForm.firstname) || IsEmail(newForm.lastname) || IsEmail(newForm.job) || IsEmail(newForm.city)) {
       setError('Emailová adresa napsaná v nesprávnem políčku')
       return;
     }
-    if (!form.email || !form.confirmemail || form.email !== form.confirmemail || !IsEmail(form.email)) {
+    if (!newForm.email || !newForm.confirmemail || newForm.email !== newForm.confirmemail || !IsEmail(newForm.email)) {
       setError('Nesprávná e-mailová adresa')
       return;
     }
