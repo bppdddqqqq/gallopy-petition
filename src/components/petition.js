@@ -96,7 +96,10 @@ const Petition = () => {
 
   return (
     <div className='text-center'>
-      <button className="" onClick={() => setView(!view)}>Podepsat</button>
+      <div className="flex flex-wrap gap-4 justify-center">
+          <button className={uploaded ? "hidden" : "block"} onClick={() => setView(!view)}>Podepsat</button>
+        <a href="https://www.facebook.com/sharer.php?u=https://scalavescale.cz/" target="_blank" rel="noreferrer"><button>Sdílet na Facebook</button></a>
+      </div>
       <div className={"mt-8 p-2 border-2 border-dashed text-left bg-white w-fit "+(view || uploaded ? "block" : "hidden")}>
         <div className={(view && !uploaded ? "block" : "hidden")}>
           <div className={'bg-red-500 p-4 text-white mb-4 ' + (error !== '' ? 'block' : 'hidden')}>
