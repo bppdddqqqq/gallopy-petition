@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { SERVER_URL } from '../global';
 import { Link } from 'gatsby'
+import IsEmail from 'validator/lib/isEmail';
 
 const Petition = () => {
   const [view, setView] = useState(false)
@@ -71,7 +72,11 @@ const Petition = () => {
       setError('Chybí město')
       return;
     }
-    if (!form.email || !form.confirmemail || form.email !== form.confirmemail) {
+    if (IsEmail(form.firstname) || IsEmail(form.lastname) || IsEmail(form.job) || IsEmail(form.city)) {
+      setError('Emailová adresa napsaná v nesprávnem políčku')
+      return;
+    }
+    if (!form.email || !form.confirmemail || form.email !== form.confirmemail || !IsEmail(form.email)) {
       setError('Nesprávná e-mailová adresa')
       return;
     }
