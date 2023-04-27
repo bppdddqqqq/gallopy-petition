@@ -3,6 +3,7 @@
     "title": "Scala ve Scale",
     "titleTemplate": "%s",
     "description": "Stránka petiční akce pro zachování Kina Scala v prostorách Kina Scala",
-    "siteUrl": "https://scalavescale.cz"
+    "siteUrl": "https://scalavescale.cz",
+    "image": "/assets/social_banner.png"
   }
 }
