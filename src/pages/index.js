@@ -93,7 +93,7 @@ const HomePage = ({ data }) => {
         </div>
       </div>
       <div className="mx-auto mb-4 max-w-5xl px-5 bg-red-100 pb-2 petice relative">
-        <div className="absolute -top-8" id="petition"/>
+        <div className="absolute -top-14" id="petition"/>
         <div className="py-8">
           <h1 className="text-6xl text-left pb-4">Petice</h1>
           <OpenLetter components={{h2: (props) => (<h2 className="text-black text-xl font-normal" {...props}></h2>)}} />

@@ -62,7 +62,7 @@ const Hero = () => (
               <small>(aktualizováno každých 15 min.)</small>
             </div>
             <div className="justify-self-center self-center">
-              <RiPenNibFill className="text-6xl text-red-400" />
+              <a href="/#petition"> <RiPenNibFill className="text-6xl text-red-400" /></a>
             </div>
           </div>
         </div>
