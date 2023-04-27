@@ -138,7 +138,7 @@ router.post('/sign', async (ctx) => {
             from: env.get('DENO_FROM') || env.get('DENO_USER') || '',
             to: `${email}`,
             subject: "[Scala Petice] Zadost o overeni podpisu",
-            content: "Do petice pod názvem Scala ve Scale jsme zaznamenali Váš online podpis! Děkujeme a držme si palce, že naše milované kino zůstane přesně takové, jaké je! Aby váš podpis byl řádne zaznamenán, potřebuje od vás potvrzení formou kliknutí na odkaz níže.",
+            content: `Do petice pod názvem Scala ve Scale jsme zaznamenali Váš online podpis! Děkujeme a držme si palce, že naše milované kino zůstane přesně takové, jaké je! Aby váš podpis byl řádne zaznamenán, potřebuje od vás potvrzení formou kliknutí na odkaz níže. ${SERVER_URL}/confirm?email=${email}&token=${token} . Nezapomeňte prosím, že tato online petice není právně závazná a že pro širší podporu Scaly je možné podepsat i petici písemnou, právně závaznou. Neváhejte sledovat náš IG - @scala_ve_scale, kde se dozvíte více jak o této petici, tak o dění okolo boje za Scalu.`,
             html: `Dobrý den,<br />
 Do petice pod názvem Scala ve Scale jsme zaznamenali Váš online podpis! Děkujeme a držme si palce, že naše milované kino zůstane přesně takové, jaké je! Aby váš podpis byl řádne zaznamenán, potřebuje od vás potvrzení formou kliknutí na odkaz níže.<br />
 <br />
