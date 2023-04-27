@@ -169,10 +169,6 @@ function generateBody(headline: string, text: string) {
     return new TextEncoder().encode(`
       <!doctype html>
       <html>
-      tasks: {
-        level: "ERROR",
-        handlers: ["console"],
-      },
         <head>
           <meta charset="utf-8">
           <title>${headline}</title>
