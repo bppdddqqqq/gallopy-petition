@@ -29,7 +29,7 @@ class Navigation extends React.Component {
         className="sticky top-0 z-[5000] shadow-md"
       >
         { <div className="bg-yellow-200 py-2 text-black text-center">
-          <p>Písemná forma petice se nyní dá podepsat v prostorách Kina Scala ve foyer</p>
+          <p>Písemná forma petice se nyní dá podepsat v prostorách Kina Scala ve foayer</p>
         </div> }
         <div className="flex flex-row justify-between w-full px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 bg-red-400 ">
           <nav id="nav" className="my-auto max-lg:ml-auto">
