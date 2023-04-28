@@ -5,12 +5,12 @@
       "title": "Domů"
     },
     {
-      "path": "/#petition",
-      "title": "Petice"
-    },
-    {
       "path": "/podepsali",
       "title": "Seznam podpisů"
+    },
+    {
+      "path": "/kestazeni",
+      "title": "Ke stažení"
     }
   ]
 }
