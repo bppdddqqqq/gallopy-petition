@@ -18,7 +18,7 @@ class Navigation extends React.Component {
 
   render () {
     const listMenuItems = navigatorJson.menuItems.map((menuItem, index) =>
-      <li key={index} className="inline-block mr-5"> {/*max-lg:block max-lg:ml-0*/}
+      <li key={index} className="inline-block mr-1 md:mr-5 "> {/*max-lg:block max-lg:ml-0*/}
         <Link to={menuItem.path} className="h-0 text-gray-300 hover:text-white max-lg:block aria-[current=page]:text-white">{/*max-lg:p-5*/}
           {menuItem.title}
         </Link>
@@ -29,7 +29,7 @@ class Navigation extends React.Component {
         className="sticky top-0 z-[5000] shadow-md"
       >
         { <div className="bg-yellow-200 py-2 text-black text-center">
-          <p>Písemná forma petice bude začínat již tento pátek (28. 4.) od 18:00 v prostorách kina Scaly.</p>
+          <p>Písemná forma petice se nyní dá podepsat v prostorách Kina Scala ve foyer</p>
         </div> }
         <div className="flex flex-row justify-between w-full px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 bg-red-400 ">
           <nav id="nav" className="my-auto max-lg:ml-auto">
