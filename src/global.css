@@ -34,6 +34,15 @@
   p + p {
     @apply mt-1;
   }
+  p + h1 {
+    @apply mt-4;
+  }
+  p + h2 {
+    @apply mt-2;
+  }
+  p + h3 {
+    @apply mt-2;
+  }
   p + ul, p + ol {
     @apply mt-2;
   }
