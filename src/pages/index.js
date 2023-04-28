@@ -28,7 +28,7 @@ export const pageQuery = graphql`
           width: 1920
           height: 800
           quality: 85
-          placeholder: BLURRED
+          placeholder: DOMINANT_COLOR
           formats: [AUTO, WEBP, AVIF]
         )
       }
@@ -62,10 +62,10 @@ const HomePage = ({ data }) => {
 
   return (
     <Layout className='text-left min-h-[80vh]'>
-      <div className="" id="top">
-        <BackgroundImage
+      <div className="bg-red-400" id="top">
+        <BackgroundImage 
           {...bg}
-          preserveStackingContext
+          
           className="w-100">
           <Hero />
         </BackgroundImage>
