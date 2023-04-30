@@ -96,7 +96,7 @@ const PodepsaliPage = ({ data }) => {
         <h1>Ke stažení</h1>
         <div className="py-5 w-1/2 mx-auto">
           <div>
-            <DlPreview title="Petiční arch" gatsbyImageData={data.petitionArch.childImageSharp.gatsbyImageData} src="/assets/petice.pdf" />
+            <DlPreview title="Petiční arch" gatsbyImageData={data.petitionArch.childImageSharp.gatsbyImageData} src="https://drive.google.com/file/d/1TDbPRa3lKYCNlaIjYbKRed8RLI9Yyf4G/view?usp=share_link" />
           </div>
         </div>
           <p>
