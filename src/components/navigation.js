@@ -29,7 +29,7 @@ class Navigation extends React.Component {
         className="sticky top-0 z-[5000] shadow-md"
       >
         <div className="bg-yellow-200 py-2 text-black text-center">
-          <p>Dnes (29.4.) bude možné podepisovat petici v Kino Scala v čase 14:00-15:00 a 17:30-21:30</p>
+          <p>Dnes (30.4.) bude možné podepisovat petici v Kino Scala v čase 17:30-20:30</p>
           {/* <p>Děkujeme za účast v dnešní petici. Nejbližší možnost podepisování petice bude v sobotu (29.4.) od 14:00</p> */}
           <p>Právně závazní petiční archy jsou nyní ke stažení <Link to="/kestezeni" className="underline">zde</Link></p>
         </div>
