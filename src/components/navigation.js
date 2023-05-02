@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "gatsby"
+import { Link, StaticQuery, graphql } from "gatsby"
 import { RiInstagramFill } from 'react-icons/ri';
 import navigatorJson from '../util/navigator.json'
 
@@ -28,11 +28,38 @@ class Navigation extends React.Component {
       <header
         className="sticky top-0 z-[5000] shadow-md"
       >
-        <div className="bg-yellow-200 py-2 text-black text-center">
-          <p>Dnes (1.5.) bude možné podepisovat petici v Kino Scala v čase 17:30-20:30</p>
-          {/* <p>Děkujeme za účast v dnešní petici. Nejbližší možnost podepisování petice bude v pon (29.4.) od 14:00</p> */}
-          <p>Právně závazní petiční archy jsou nyní ke stažení <Link to="/kestazeni" className="underline">zde</Link></p>
-        </div>
+        <StaticQuery query={graphql`
+              query MyQuery {
+                allFile(filter: {relativeDirectory: {eq: "perex"}}) {
+                  nodes {
+                    childMdx {
+                      frontmatter {
+                        msg
+                        link
+                        linktext
+                      }
+                    }
+                  }
+                }
+              }
+            `} render={x => {
+              if (x.allFile.nodes.length == 0) {
+                return <></>
+              }
+              return <div className="bg-yellow-200 py-2 text-black text-center">
+                {x.allFile.nodes.map(x => {
+                  const { frontmatter } = x.childMdx;
+                  const { msg, link, linktext } = frontmatter
+
+                  if (link && linktext) {
+                    return (
+                      <p>{msg} <Link to={link}><button className="text-sm p-2 ml-4">{linktext}</button></Link></p>
+                    )
+                  }
+                  return (<p>{msg}</p>)
+                })}
+              </div>
+            }} />
         <div className="flex flex-row justify-between w-full px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 bg-red-400 ">
           <nav id="nav" className="my-auto max-lg:ml-auto">
             <ul className="p-0 m-0 list-none">
