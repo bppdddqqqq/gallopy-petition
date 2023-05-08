@@ -169,6 +169,7 @@ const Petition = () => {
         <div className={"py-6 px-4 " + (uploaded ? "block" : "hidden")}>
           <h1 className="text-black text-left text-1xl">Děkujeme za podporu naší petice a zejména za podporu kina Scala!</h1>
           <p className="text-lg text-left text-black">Na Vaši <b>e-mailovou adresu</b> jsme <b>odeslali ověřovací e-mail</b>, kterým <b>svůj hlas v petici potvrdíte</b>. Pokud jej nevidíte, může se nacházet ve spamu.</p>
+          <p className="text-md text-left text-red-400">Připomíname vám, že petice je právně nezávazní. Pokud můžete, tak podepište petici offline.</p>
         </div>
       </div>
     </div>

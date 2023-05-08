@@ -35,8 +35,6 @@ class Navigation extends React.Component {
                     childMdx {
                       frontmatter {
                         msg
-                        link
-                        linktext
                       }
                     }
                   }
