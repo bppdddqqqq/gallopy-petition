@@ -19,7 +19,7 @@ class Navigation extends React.Component {
   render () {
     const listMenuItems = navigatorJson.menuItems.map((menuItem, index) =>
       <li key={index} className="inline-block mr-1 md:mr-5 "> {/*max-lg:block max-lg:ml-0*/}
-        <Link to={menuItem.path} className="h-0 text-gray-300 hover:text-white max-lg:block aria-[current=page]:text-white">{/*max-lg:p-5*/}
+        <Link to={menuItem.path} className="h-0 text-white hover:text-pink-100 font-bold max-lg:block aria-[current=page]:text-white">{/*max-lg:p-5*/}
           {menuItem.title}
         </Link>
       </li>
@@ -58,7 +58,7 @@ class Navigation extends React.Component {
                 })}
               </div>
             }} />
-        <div className="flex flex-row justify-between w-full px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 bg-red-400 ">
+        <div className="flex flex-row justify-between w-full px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 bg-red-500 ">
           <nav id="nav" className="my-auto max-lg:ml-auto">
             <ul className="p-0 m-0 list-none">
               {listMenuItems}
