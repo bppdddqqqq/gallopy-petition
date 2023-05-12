@@ -19,7 +19,7 @@ class Navigation extends React.Component {
   render () {
     const listMenuItems = navigatorJson.menuItems.map((menuItem, index) =>
       <li key={index} className="inline-block mr-1 md:mr-5 "> {/*max-lg:block max-lg:ml-0*/}
-        <Link to={menuItem.path} className="h-0 text-gray-300 hover:text-white max-lg:block aria-[current=page]:text-white">{/*max-lg:p-5*/}
+        <Link to={menuItem.path} className="h-0 text-white hover:text-pink-100 font-bold max-lg:block aria-[current=page]:text-white">{/*max-lg:p-5*/}
           {menuItem.title}
         </Link>
       </li>

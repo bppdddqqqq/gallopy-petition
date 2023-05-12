@@ -50,7 +50,7 @@ export const pageQuery = graphql`
 
 const Card = ({text, header, icon, className = ''}) => (
   <div className={"p-5 px-8 bg-red-500 shadow-md rounded-lg "+className}>
-    <div className="flex gap-4 items-center mb-4">
+    <div className="flex gap-4 items-center mb-4 justify-center">
       {icon}
       <h1 className="text-left text-white">{header}</h1>
     </div>
@@ -99,7 +99,7 @@ const HomePage = ({ data }) => {
         <h1>Kde můžu podepsat?</h1>
         <div className="grid grid-cols-3 max-md:grid-cols-1 gap-8 mt-16">
           <div>
-            <h2 className="bg-red-200 rounded-lg text-left px-6">Brno</h2>
+            <h2 className="bg-red-200 rounded-lg text-left px-6 pl-4">Brno</h2>
             <ul className="place-list mx-4 mt-4">
               <li><h3>Café Bar Scala</h3><p>Moravské nám. 3, Brno</p></li>
               <li><h3>Divadlo Husa na provázku</h3><p>Zelný trh 294, Brno</p></li>
@@ -107,7 +107,7 @@ const HomePage = ({ data }) => {
             </ul>
           </div>
           <div>
-            <h2 className="bg-red-200 rounded-lg text-left px-6">Praha</h2>
+            <h2 className="bg-red-200 rounded-lg text-left px-6 pl-4">Praha</h2>
             <ul className="place-list mx-4 mt-4">
               <li><h3>Bio Oko</h3><p>Františka Křížka 460/15, Praha 7</p></li>
               <li><h3>Kino Světozor</h3><p>Vodičkova 41, Praha 1</p></li>
@@ -116,11 +116,11 @@ const HomePage = ({ data }) => {
             </ul>
           </div>
           <div>
-            <h2 className="bg-red-200 rounded-lg text-left px-6">Hradec Králové</h2>
+            <h2 className="bg-red-200 rounded-lg text-left px-6 pl-4">Hradec Králové</h2>
             <ul className="place-list mx-4 mt-4">
               <li><h3>Bio Central</h3><p>Karla IV. 774, Hradec Králové</p></li>
             </ul>
-            <h2 className="bg-red-200 rounded-lg text-left px-6 mt-6">Boskovice</h2>
+            <h2 className="bg-red-200 rounded-lg text-left px-6 pl-4 mt-6">Boskovice</h2>
             <ul className="place-list mx-4 mt-4">
               <li><h3>Kulturní a Komunitní centrum Prostor</h3><p>Hradní 3, Boskovice</p></li>
             </ul>
