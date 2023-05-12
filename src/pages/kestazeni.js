@@ -80,7 +80,7 @@ const DlPreview = ({ title, gatsbyImageData, src }) => {
 
   return (
     <a href={src} target="_blank" rel="noreferrer" >
-      <div className="p-5 shadow-md">
+      <div className="p-5 shadow-md rounded-lg">
         <GatsbyImage className="h-32 w-full" image={gatsbyImageData} />
         <p>{title}</p>
       </div>

@@ -108,8 +108,7 @@
     content: url(../static/css/polygon.svg);
     display: flex;
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: calc(50% - 12px);
     left: 0;
   }
   

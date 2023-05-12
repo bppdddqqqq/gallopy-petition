@@ -50,7 +50,7 @@ export const pageQuery = graphql`
 
 const Card = ({text, header, icon, className = ''}) => (
   <div className={"p-5 px-8 bg-red-500 shadow-md rounded-lg "+className}>
-    <div className="flex gap-2 items-center mb-2">
+    <div className="flex gap-4 items-center mb-4">
       {icon}
       <h1 className="text-left text-white">{header}</h1>
     </div>
