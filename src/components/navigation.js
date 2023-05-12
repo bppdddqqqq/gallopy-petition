@@ -58,7 +58,7 @@ class Navigation extends React.Component {
                 })}
               </div>
             }} />
-        <div className="flex flex-row justify-between w-full px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 bg-red-400 ">
+        <div className="flex flex-row justify-between w-full px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 bg-red-500 ">
           <nav id="nav" className="my-auto max-lg:ml-auto">
             <ul className="p-0 m-0 list-none">
               {listMenuItems}

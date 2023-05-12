@@ -10145,6 +10145,16 @@ postcss-import@^14.1.0:
     read-cache "^1.0.0"
     resolve "^1.1.7"
 
+postcss-inline-svg@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-inline-svg/-/postcss-inline-svg-6.0.0.tgz#8fef43627d7616c84d13408363d01f4869e1b22c"
+  integrity sha512-ok5j0Iqsn8mS/5U1W+Im6qkQjm6nBxdwwJU+BSnBaDhLjC06h1xvy9MA+tefxhfZP/ARTRwARSozzYGf/sqEGg==
+  dependencies:
+    css-select "^5.1.0"
+    dom-serializer "^2.0.0"
+    htmlparser2 "^8.0.1"
+    postcss-value-parser "^4.2.0"
+
 postcss-js@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/postcss-js/-/postcss-js-4.0.1.tgz#61598186f3703bab052f1c4f7d805f3991bee9d2"

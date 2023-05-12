@@ -51,15 +51,15 @@ const Hero = () => (
         </span>
       </Link> */}
       <ScalaLogo className="h-40" />
-      <div className="absolute right-0 left-0 -bottom-8">
+      <div className="absolute right-0 left-0 -bottom-9">
         <div className="flex justify-center">
-          <div className="flex gap-8 px-8 py-6 bg-white shadow-md">
+          <div className="flex gap-8 px-8 py-6 bg-white shadow-md rounded-lg">
             <div
               className="font-bold leading-none text-left text-md"
             >
               <h2 className="text-red-400">Podepsalo:</h2>
-              <p className="text-xl my-1 text-center"><Counter /></p>
-              <small>(aktualizováno každých 15 min.)</small>
+              <p className="text-xl my-1 mb-2 text-center"><Counter /></p>
+              <small className="bg-red-400 text-white rounded-full px-2 py-1">aktualizováno každých 15 min.</small>
             </div>
             <div className="justify-self-center self-center">
               <a href="/#petition"> <RiPenNibFill className="text-6xl text-red-400" /></a>
