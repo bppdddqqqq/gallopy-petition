@@ -2,7 +2,6 @@ import React from 'react'
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
-import IndexText from '../content/index/maintext.mdx'
 import OpenLetter from '../content/index/openletter.mdx'
 import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image-es5'
@@ -85,13 +84,13 @@ const HomePage = ({ data }) => {
         <div className="grid grid-cols-2 max-md:grid-cols-1 max-md:grid-flow-dense gap-4">
           <div className="self-center h-max">
             <h1>Podepište také fyzickou petici!</h1>
-            <p>Nyní máte možnost podepsat i právně závaznou, papírovou formu petice. Učinit tak můžete u našich dobrovolníků, kteří jsou každý den přítomni u kina Scala v předem vypsaných hodinách, nebo na jednom ze sběrných míst petičních podpisů.</p>
+            <p className='text-center'>Nyní máte možnost podepsat i <b>právně závaznou</b>, papírovou formu petice. Učinit tak můžete u našich dobrovolníků, kteří jsou každý den přítomni u kina Scala v předem vypsaných hodinách, nebo na jednom ze <b>sběrných míst</b> petičních podpisů.</p>
           </div>
-          <div className='max-h-80 p-8 relative'>
+          <div className='max-h-96 p-8 relative'>
             <div className="absolute left-0 bottom-0 right-0 z-10">
               <OverlayPetice className="h-full w-full"/>
             </div>
-            <GatsbyImage className='h-full rounded-xl' image={peticeImage.childImageSharp.gatsbyImageData} />
+            <GatsbyImage className='h-full rounded-xl brightness-125 contrast-75' image={peticeImage.childImageSharp.gatsbyImageData}/>
           </div>
         </div>
       </div>
@@ -129,7 +128,7 @@ const HomePage = ({ data }) => {
       </div>
       <div className="py-10 mt-2 relative overflow-hidden">
           <div className="max-w-3xl container mx-auto">
-            <IndexText />
+            <p className='text-center'>Univerzitní kino Scala oslovuje už 10 let příznivce kulturního dění napříč věkovými kategoriemi. “To své” si v programu díky lidem, kteří se o provoz kina s láskou starají, najdou děti při víkendových projekcích pro nejmladší, studenti během akademického roku při výuce, milovníci filmu, zájmových přednášek, besed nebo čtení, i senioři v rámci pravidelného klubového setkávání. Scala a program, který nabízí a často i sama inspiruje, má fanoušky všude, jen ne na Magistrátu města Brna. Tomu chceme co největším počtem podpisů připomenout, že jde o místo s nezaměnitelnou atmosférou a početnou komunitou lidí, kteří za jeho zachování chtějí bojovat.</p>
             <div className="text-center mt-4">
               <button onClick={scroller}>K petici</button>
             </div>
@@ -144,9 +143,9 @@ const HomePage = ({ data }) => {
       <div className="bg-red-200 pb-12 mb-12 lg:mb-24 pt-6">
         <h2 className="mt-8">Proč by měla Scala existovat?</h2>
         <div className="container grid grid-cols-3 gap-16 mx-auto mt-14 max-w-6xl max-lg:grid-cols-2 max-md:grid-cols-1">
-          <Card header="Vzdělání" text="Scala není jenom zábava, ale i vzdělání a výchova k hodnotám. Výuku sem zasadila Masarykova univerzita, vzdělávací platforma tu pak dál roste z festivalových stálic jako je Jeden svět nebo Serial Killer." icon={<EduSvg className="h-12 w-12" />} />
-          <Card header="Vztah" text="Scala se v průběhu posledních deseti let stala pro stovky, snad i tisíce lidí místem prvního kontaktu s brněnskou kulturní scénou a řadou osobností, které ji utváří. Neformální, přátelská a přitom inspirativní atmosféra Scaly ve městě nemá obdobu a pro mnohé představuje srdeční záležitost, příležitost diskutovat, seznámit se, zamilovat se." icon={<LoveSvg className="h-12 w-12" />} />
-          <Card header="Kultura" text="Kultura je ve Scale miliónová. Od roku 2013 kino navštívilo přes 1&nbsp;000&nbsp;000 lidí, ať už v rámci projekcí, přednášek, besed nebo jiných akcí, které Scala pravidelně hostí." icon={<CultureSvg className="h-12 w-12" />}  className="md:max-lg:col-start-1 md:max-lg:col-end-3 md:max-lg:mx-auto md:max-lg:w-1/2"/>
+          <Card header="Vzdělání" text="Scala není jenom zábava, ale i vzdělání a výchova k hodnotám. Výuku sem zasadila Masarykova univerzita, vzdělávací platforma tu pak dál roste z festivalových stálic jako je Jeden svět nebo Serial Killer." icon={<EduSvg className="h-12" />} />
+          <Card header="Vztah" text="Scala se v průběhu posledních deseti let stala pro stovky, snad i tisíce lidí místem prvního kontaktu s brněnskou kulturní scénou a řadou osobností, které ji utváří. Neformální, přátelská a přitom inspirativní atmosféra Scaly ve městě nemá obdobu a pro mnohé představuje srdeční záležitost, příležitost diskutovat, seznámit se, zamilovat se." icon={<LoveSvg className="h-12" />} />
+          <Card header="Kultura" text="Kultura je ve Scale miliónová. Od roku 2013 kino navštívilo přes 1&nbsp;000&nbsp;000 lidí, ať už v rámci projekcí, přednášek, besed nebo jiných akcí, které Scala pravidelně hostí." icon={<CultureSvg className="h-12" />}  className="md:max-lg:col-start-1 md:max-lg:col-end-3 md:max-lg:mx-auto md:max-lg:w-1/2"/>
         </div>
       </div>
       <div className="mx-auto mb-4 max-w-5xl px-5 bg-red-100 pb-2 petice relative">
