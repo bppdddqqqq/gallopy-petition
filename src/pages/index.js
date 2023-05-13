@@ -32,7 +32,7 @@ export const pageQuery = graphql`
         )
       }
     }
-    peticeImage: file(relativePath: { eq: "peticefoto.JPG" }) {
+    peticeImage: file(relativePath: { eq: "peticephoto-bw2.png" }) {
       childImageSharp {
         gatsbyImageData(
           layout: FULL_WIDTH
@@ -72,9 +72,9 @@ const HomePage = ({ data }) => {
   return (
     <Layout className='text-left min-h-[80vh]'>
       <div className="bg-red-400 mb-14" id="top">
-        <BackgroundImage 
+        <BackgroundImage
           {...bg}
-          
+
           className="w-100">
           <Hero />
         </BackgroundImage>
@@ -90,13 +90,18 @@ const HomePage = ({ data }) => {
             <div className="absolute left-0 bottom-0 right-0 z-10">
               <OverlayPetice className="h-full w-full"/>
             </div>
-            <GatsbyImage className='h-full rounded-xl brightness-125 contrast-75' image={peticeImage.childImageSharp.gatsbyImageData}/>
+            <GatsbyImage className='h-full rounded-xl' image={peticeImage.childImageSharp.gatsbyImageData}/>
           </div>
         </div>
       </div>
       <div className="container mx-auto my-10">
         <h1>Kde můžu podepsat?</h1>
-        <div className="grid grid-cols-3 max-md:grid-cols-1 gap-8 mt-16">
+        <div className="max-w-3xl container mx-auto">
+          <p className='text-center mt-3'>
+           Podepsat petici můžete především u našich dobrovolníků od 17:30 do 20:30 přímo v Univerzitním kině Scala. Jestliže však nemáte možnost nás navštívit, můžete kino podpořit i na těchto místech:
+          </p>
+        </div>
+        <div className="grid grid-cols-3 max-md:grid-cols-1 gap-8 mt-8">
           <div>
             <h2 className="bg-red-200 rounded-lg text-left px-6 pl-4">Brno</h2>
             <ul className="place-list mx-4 mt-4">
@@ -111,7 +116,7 @@ const HomePage = ({ data }) => {
               <li><h3>Bio Oko</h3><p>Františka Křížka 460/15, Praha 7</p></li>
               <li><h3>Kino Světozor</h3><p>Vodičkova 41, Praha 1</p></li>
               <li><h3>Kino Přítomnost</h3><p>Siwiecova 1,Praha 3</p></li>
-              <li><h3>Kino Přítomnost</h3><p>Biskupcova 31, Praha 3</p></li>
+              <li><h3>Kino Aero</h3><p>Biskupcova 31, Praha 3</p></li>
             </ul>
           </div>
           <div>
