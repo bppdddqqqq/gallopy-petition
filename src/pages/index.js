@@ -1,10 +1,8 @@
 import React from 'react'
-import { getImage, GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import OpenLetter from '../content/index/openletter.mdx'
-import { convertToBgImage } from 'gbimage-bridge'
-import BackgroundImage from 'gatsby-background-image-es5'
 import Hero from '../components/hero'
 import Petition from '../components/petition'
 import { SEO } from '../components/seo'
@@ -20,18 +18,6 @@ import LastSignees from '../components/last-signees'
 
 export const pageQuery = graphql`
   query HomeQuery {
-    placeholderImage: file(relativePath: { eq: "web_banner.png" }) {
-      childImageSharp {
-        gatsbyImageData(
-          layout: FULL_WIDTH
-          width: 1920
-          height: 800
-          quality: 85
-          placeholder: DOMINANT_COLOR
-          formats: [AUTO, WEBP, AVIF]
-        )
-      }
-    }
     peticeImage: file(relativePath: { eq: "peticephoto-bw2.png" }) {
       childImageSharp {
         gatsbyImageData(
@@ -58,9 +44,7 @@ const Card = ({text, header, icon, className = ''}) => (
 )
 
 const HomePage = ({ data }) => {
-  const { placeholderImage, peticeImage } = data
-  const image = getImage(placeholderImage)
-  const bg = convertToBgImage(image)
+  const { peticeImage } = data
   // console.log(data)
 
   const scroller = () => {
@@ -71,15 +55,7 @@ const HomePage = ({ data }) => {
 
   return (
     <Layout className='text-left min-h-[80vh]'>
-      <div className="bg-red-400 mb-14" id="top">
-        <BackgroundImage
-          {...bg}
-
-          className="w-100">
-          <Hero />
-        </BackgroundImage>
-      </div>
-
+      <Hero className="mb-14" id="top" />
       <div className="container mx-auto">
         <div className="grid grid-cols-2 max-md:grid-cols-1 max-md:grid-flow-dense gap-4">
           <div className="self-center h-max">
@@ -90,17 +66,13 @@ const HomePage = ({ data }) => {
             <div className="absolute left-0 bottom-0 right-0 z-10">
               <OverlayPetice className="h-full w-full"/>
             </div>
-            <GatsbyImage className='h-full rounded-xl' image={peticeImage.childImageSharp.gatsbyImageData}/>
+            <GatsbyImage alt="Fotka peticniho archu" className='h-full rounded-xl' image={peticeImage.childImageSharp.gatsbyImageData}/>
           </div>
         </div>
       </div>
       <div className="container mx-auto my-10">
         <h1>Kde můžu podepsat?</h1>
-        <div className="max-w-3xl container mx-auto">
-          <p className='text-center mt-3'>
-           Podepsat petici můžete především u našich dobrovolníků od 17:30 do 20:30 přímo v Univerzitním kině Scala. Jestliže však nemáte možnost nás navštívit, můžete kino podpořit i na těchto místech:
-          </p>
-        </div>
+        <p className="text-center mt-3">Podepsat petici můžete zejména i u našich dobrovolníků v určených hodinách přímo v prostorách kina Scala, pokud ale nemáte prostor na podpis v hodiny dobrovolnictví, můžete petici podepsat rovněž na těchto místech:</p>
         <div className="grid grid-cols-3 max-md:grid-cols-1 gap-8 mt-8">
           <div>
             <h2 className="bg-red-200 rounded-lg text-left px-6 pl-4">Brno</h2>
