@@ -32,8 +32,8 @@ const Hero = ({className = '', id = ''}) => {
   
   return (
     <div className={"bg-red-500 max-h-96 relative "+className} id={id}>
-      <animated.div className="absolute h-full overflow-hidden w-fit top-0 bottom-0 -left-[9999px] -right-[9999px] m-auto flex justify-center" style={{'--opacity-hands': cssSpring.val}}>
-        <BannerHands className="h-full"/>
+      <animated.div className="absolute h-full overflow-hidden top-0 bottom-0 -left-[9999px] -right-[9999px] m-auto flex justify-center" style={{'--opacity-hands': cssSpring.val}}>
+        <BannerHands className="h-full w-full"/>
       </animated.div>
       <div className="relative">
         <div className='container m-auto h-96 flex justify-center items-center pb-8'>
