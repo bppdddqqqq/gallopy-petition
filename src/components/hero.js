@@ -4,7 +4,6 @@ import { SERVER_URL } from '../global';
 import ScalaLogo from '../../static/assets/scala-logo.svg'
 import BannerHands from '../../static/assets/svg_ruky.svg'
 import { useSpring, animated } from 'react-spring';
-import { easings } from '@react-spring/web';
 
 const Hero = ({className = '', id = ''}) => {
   const spring = useSpring({from: { val: 0}});
@@ -34,7 +33,7 @@ const Hero = ({className = '', id = ''}) => {
   return (
     <div className={"bg-red-400 max-h-96 relative "+className} id={id}>
       <animated.div className="absolute h-full overflow-hidden w-full top-0 left-0 right-0 bottom-0" style={{'--opacity-hands': cssSpring.val}}>
-        <BannerHands  />
+        <BannerHands className="h-full" />
       </animated.div>
       <div className="relative">
         <div className='container m-auto h-96 flex justify-center items-center pb-8'>
