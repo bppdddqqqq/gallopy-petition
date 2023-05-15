@@ -5,6 +5,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { SEO } from "../components/seo"
 
+import { normalizeName, normalizeWhiteSpaces } from 'normalize-text';
+
 export const pageQuery = graphql`
   query PodepsaliQuery {
 		site {
@@ -43,7 +45,9 @@ const PodepsaliPage = ({ data }) => {
 			}
 			setSignees([...signees, ...array])
 			// console.log(data, pages)
-    });
+    }).catch(() => {
+			setSignees([]);
+		});
 	}
 
 	useEffect(() => {
@@ -54,12 +58,14 @@ const PodepsaliPage = ({ data }) => {
 	})
 	// console.log(pages)
 	return (
-		<Layout>
-			<div className="mx-auto my-0 mt-8 max-w-6xl">
+		<Layout className="">
+			<div className="mx-auto my-0 mt-8 max-w-6xl container">
 				<h1>Petici podepsali tito Scalní fanoušci:</h1>
 				<p>Tabulka zobrazuje pouze jména osob, které souhlasily se zveřejněním svých osobních údajů, počet respondentů níže se tak nemusí shodovat s celkovým počtem podporovatelů. Počítadlo je aktualizováno každých 15 minut.</p>
-				<div className="lg:px-5 lg:pt-5 my-5 lg:shadow-md lg:rounded-lg overflow-y-auto overflow-x-scroll w-full">
-				<table>
+			</div>
+			<div className="mx-auto my-0 mt-8 max-8xl relative">
+			<div className="my-5 overflow-y-auto overflow-x-scroll w-full max-w-7xl mx-auto lg:px-2 max-lg:pb-16">
+				<table className="max-lg:mb-4">
 					<thead>
 						<tr>
 							<th>Jméno</th>
@@ -73,17 +79,17 @@ const PodepsaliPage = ({ data }) => {
 						{
 							signees.map(({firstname, lastname, job, city, createdAt}, key) => (
 								<tr key={key}>
-									<td>{firstname}</td>
-									<td>{lastname}</td>
-									<td>{job}</td>
-									<td>{city}</td>
+									<td>{normalizeName(firstname)}</td>
+									<td>{normalizeName(lastname)}</td>
+									<td>{normalizeWhiteSpaces(job)}</td>
+									<td>{normalizeName(city)}</td>
 									<td>{new Date(createdAt + "Z").toLocaleString("cs-CZ", {timeZone: "Europe/Prague"})}</td>
 								</tr>
 							))
 						}
 					</tbody>
 				</table>
-				<div className={"py-3 text-center mt-4 "+((pages === -1) ? "hidden" : "")}>
+				<div className={"py-3 text-center mt-4 max-lg:absolute max-lg:bottom-0 max-lg:right-0 max-lg:left-0 max-lg:left:4 "+((pages === -1) ? "hidden" : "")}>
 						<button className="mx-auto" onClick={fetchItems}>
 							Načíst další
 						</button>

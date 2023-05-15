@@ -1064,6 +1064,11 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
+"@bitty/pipe@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@bitty/pipe/-/pipe-0.3.0.tgz#91455955fcd586357316799003d56d9aca03a715"
+  integrity sha512-Ft4tmMM8vfuQOD3jpmvCYPEXoLhWLXWh/Mkeql09d3+9FFMaQBdFdo8GBmhQ01z+D6P3NkqNq02rbb4oBkhjLw==
+
 "@builder.io/partytown@^0.7.5":
   version "0.7.6"
   resolved "https://registry.yarnpkg.com/@builder.io/partytown/-/partytown-0.7.6.tgz#697acea6b552167a4dd43ddd4827018aa42e0364"
@@ -9535,6 +9540,13 @@ normalize-range@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
+
+normalize-text@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/normalize-text/-/normalize-text-2.4.1.tgz#dba275ef7d36533ea278fdd6e2e216eec34f3f74"
+  integrity sha512-cmckAM5KW/lvqJoDUZWOdMHswvEA5LBEtkR/0YXv6iNV+4+5Aha+1lOKQuVFT38lnRavDRSzpoxb9DTt/3nbOw==
+  dependencies:
+    "@bitty/pipe" "^0.3.0"
 
 normalize-url@^6.0.1:
   version "6.1.0"

@@ -74,9 +74,17 @@
   th {
     @apply font-bold border-b-2 border-b-red-400 text-xl;
   }
-  td {
+  tr {
     @apply bg-red-200;
-    @apply border-b-red-300 border-b-2;
+  }
+  tr:nth-child(n+2) {
+    @apply border-t-red-300 border-t-2;
+  }
+  td, th {
+    @apply py-1 px-2;
+  }
+  th {
+    @apply min-w-[12ch] text-left;
   }
   label > input[type="text"] {
     @apply mt-2;
