@@ -24,8 +24,8 @@ const Hero = ({className = '', id = ''}) => {
       .then((data) => {
         setLoaded(true)
         setTimeout(() => {
-          spring.val.start({ to: {val: Number(data)}, from: { val: 0 }, config: {duration: Number(data), round: 2}, })
-          cssSpring.val.start({ to: {val: Number(data)/50}, from: { val: 0 }, config: {duration: Number(data), round: 20}, })
+          spring.val.start({ to: {val: Number(data)}, from: { val: 0 }, config: {duration: Number(data)/3, round: 2}, })
+          cssSpring.val.start({ to: {val: Number(data)/50}, from: { val: 0 }, config: {duration: Number(data)/3, round: 6}, })
         }, 500)
       });
   })
@@ -45,7 +45,10 @@ const Hero = ({className = '', id = ''}) => {
                   className="font-bold leading-none text-left text-md"
                 >
                   <h2 className="text-red-400">Podepsalo:</h2>
-                  <animated.p className="text-xl my-1 mb-2 text-center">{spring.val}</animated.p>
+                  <animated.p className="text-xl my-1 mb-2 text-center" onClick={() => {
+                    spring.val.finish()
+                    cssSpring.val.finish()
+                  }}>{spring.val}</animated.p>
                   <small className="bg-red-500 text-white rounded-full px-2 py-1">aktualizováno každých 15 min.</small>
                 </div>
                 <div className="justify-self-center self-center">
