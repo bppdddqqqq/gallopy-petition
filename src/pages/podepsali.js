@@ -79,11 +79,11 @@ const PodepsaliPage = ({ data }) => {
 						{
 							signees.map(({firstname, lastname, job, city, createdAt}, key) => (
 								<tr key={key}>
-									<td>{normalizeName(firstname)}</td>
-									<td>{normalizeName(lastname)}</td>
+									<td className="min-w-[20ch]">{normalizeName(firstname)}</td>
+									<td className="min-w-[20ch]">{normalizeName(lastname)}</td>
 									<td className='max-w-[20ch] text-ellipsis'>{normalizeWhiteSpaces(job)}</td>
-									<td>{normalizeName(city)}</td>
-									<td>{new Date(createdAt + "Z").toLocaleString("cs-CZ", {timeZone: "Europe/Prague"})}</td>
+									<td className="max-w-[20ch]">{normalizeName(city)}</td>
+									<td className="whitespace-nowrap">{new Date(createdAt + "Z").toLocaleString("cs-CZ", {timeZone: "Europe/Prague"})}</td>
 								</tr>
 							))
 						}
