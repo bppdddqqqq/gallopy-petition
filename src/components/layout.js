@@ -7,15 +7,15 @@ import Footer from "./footer";
 
 
 
-const Layout = ({children, className = "container mx-auto my-0 text-left min-h-[80vh]"}) => {
+const Layout = ({children, className = "container mx-auto my-0 text-left"}, style) => {
   return (
-    <main>
+    <div className="flex flex-col min-h-screen">
       <Navigation />
-      <main className={className}>
+      <main className={className} style={{'flexGrow': '1'}}>
         {children}
       </main>
       <Footer/>
-    </main>
+    </div>
   )
 }
 

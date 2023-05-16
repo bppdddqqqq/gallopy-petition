@@ -140,7 +140,7 @@ const HomePage = ({ data }) => {
       </div>
       <LastSignees />
       <div className="relative w-100 overflow-hidden mb-16">
-        <div className='container mx-auto bg-white lg:p-8 max-w-4xl border-b-4 border-b-red-400 lg:text-center'>
+        <div className='container mx-auto bg-white lg:p-8 max-w-4xl lg:border-b-4 lg:border-b-red-400 lg:text-center'>
             <div className="text-center p-8 px-24">
               <h1 className="">A co dál?</h1>
             </div>
