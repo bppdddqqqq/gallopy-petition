@@ -80,6 +80,8 @@ const HomePage = ({ data }) => {
               <li><h3>Café Bar Scala</h3><p>Moravské nám. 3, Brno</p></li>
               <li><h3>Divadlo Husa na provázku</h3><p>Zelný trh 294, Brno</p></li>
               <li><h3>Na Dráze</h3><p>Nádražní 9, Brno</p></li>
+              <li><h3>Hudy Lezecká stěna</h3><p>Vídeňská 297/v, Brno</p></li>
+              <li><h3>Lezecká stěna Betonka</h3><p>U Dálnice 777, Brno</p></li>
             </ul>
           </div>
           <div>
@@ -89,6 +91,7 @@ const HomePage = ({ data }) => {
               <li><h3>Kino Světozor</h3><p>Vodičkova 41, Praha 1</p></li>
               <li><h3>Kino Přítomnost</h3><p>Siwiecova 1,Praha 3</p></li>
               <li><h3>Kino Aero</h3><p>Biskupcova 31, Praha 3</p></li>
+              <li><h3>Edison Filmhub</h3><p>Jeruzalémská 1321/2, Praha 1</p></li>
             </ul>
           </div>
           <div>
