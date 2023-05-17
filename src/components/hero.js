@@ -26,7 +26,7 @@ const Hero = ({className = '', id = ''}) => {
         setTimeout(() => {
           spring.val.start({ to: {val: Number(data)}, from: { val: 0 }, config: {duration: Number(data)/3, round: 2}, })
           cssSpring.val.start({ to: {val: Number(data)/50}, from: { val: 0 }, config: {duration: Number(data)/3, round: 6}, })
-        }, 500)
+        }, 166)
       });
   })
   
