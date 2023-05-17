@@ -103,9 +103,9 @@ const HomePage = ({ data }) => {
             <ul className="place-list mx-4 mt-4">
               <li><h3>Kulturní a Komunitní centrum Prostor</h3><p>Hradní 3, Boskovice</p></li>
             </ul>
-            <h2 className="bg-red-200 rounded-lg text-left px-6 pl-4 mt-6">v omezenou dobu</h2>
+            <h2 className="bg-red-200 rounded-lg text-left px-6 pl-4 mt-6">(V omezenou dobu)</h2>
             <ul className="place-list mx-4 mt-4">
-              <li><h3>Fakulta Informatiky MU</h3><p>Botanická 68a, Brno (jenom 19.5. o 18:00-22:00)</p></li>
+              <li><h3>Fakulta Informatiky MU</h3><p>Botanická 68a, Brno (19.5. o 18:00-22:00)</p></li>
             </ul>
           </div>
         </div>
