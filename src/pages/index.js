@@ -1,10 +1,8 @@
 import React from 'react'
-import { getImage, GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import OpenLetter from '../content/index/openletter.mdx'
-import { convertToBgImage } from 'gbimage-bridge'
-import BackgroundImage from 'gatsby-background-image-es5'
 import Hero from '../components/hero'
 import Petition from '../components/petition'
 import { SEO } from '../components/seo'
@@ -20,18 +18,6 @@ import LastSignees from '../components/last-signees'
 
 export const pageQuery = graphql`
   query HomeQuery {
-    placeholderImage: file(relativePath: { eq: "web_banner.png" }) {
-      childImageSharp {
-        gatsbyImageData(
-          layout: FULL_WIDTH
-          width: 1920
-          height: 800
-          quality: 85
-          placeholder: DOMINANT_COLOR
-          formats: [AUTO, WEBP, AVIF]
-        )
-      }
-    }
     peticeImage: file(relativePath: { eq: "peticephoto-bw2.png" }) {
       childImageSharp {
         gatsbyImageData(
@@ -58,9 +44,7 @@ const Card = ({text, header, icon, className = ''}) => (
 )
 
 const HomePage = ({ data }) => {
-  const { placeholderImage, peticeImage } = data
-  const image = getImage(placeholderImage)
-  const bg = convertToBgImage(image)
+  const { peticeImage } = data
   // console.log(data)
 
   const scroller = () => {
@@ -71,15 +55,7 @@ const HomePage = ({ data }) => {
 
   return (
     <Layout className='text-left min-h-[80vh]'>
-      <div className="bg-red-400 mb-14" id="top">
-        <BackgroundImage
-          {...bg}
-
-          className="w-100">
-          <Hero />
-        </BackgroundImage>
-      </div>
-
+      <Hero className="mb-14" id="top" />
       <div className="container mx-auto">
         <div className="grid grid-cols-2 max-md:grid-cols-1 max-md:grid-flow-dense gap-4">
           <div className="self-center h-max">
@@ -90,7 +66,7 @@ const HomePage = ({ data }) => {
             <div className="absolute left-0 bottom-0 right-0 z-10">
               <OverlayPetice className="h-full w-full"/>
             </div>
-            <GatsbyImage className='h-full rounded-xl' image={peticeImage.childImageSharp.gatsbyImageData}/>
+            <GatsbyImage alt="Fotka peticniho archu" className='h-full rounded-xl' image={peticeImage.childImageSharp.gatsbyImageData}/>
           </div>
         </div>
       </div>
@@ -106,6 +82,8 @@ const HomePage = ({ data }) => {
               <li><h3>Café Bar Scala</h3><p>Moravské nám. 3, Brno</p></li>
               <li><h3>Divadlo Husa na provázku</h3><p>Zelný trh 294, Brno</p></li>
               <li><h3>Na Dráze</h3><p>Nádražní 9, Brno</p></li>
+              <li><h3>Hudy Lezecká stěna</h3><p>Vídeňská 297/v, Brno</p></li>
+              <li><h3>Lezecká stěna Betonka</h3><p>U Dálnice 777, Brno</p></li>
             </ul>
           </div>
           <div>
@@ -115,6 +93,7 @@ const HomePage = ({ data }) => {
               <li><h3>Kino Světozor</h3><p>Vodičkova 41, Praha 1</p></li>
               <li><h3>Kino Přítomnost</h3><p>Siwiecova 1,Praha 3</p></li>
               <li><h3>Kino Aero</h3><p>Biskupcova 31, Praha 3</p></li>
+              <li><h3>Edison Filmhub</h3><p>Jeruzalémská 1321/2, Praha 1</p></li>
             </ul>
           </div>
           <div>
@@ -125,6 +104,10 @@ const HomePage = ({ data }) => {
             <h2 className="bg-red-200 rounded-lg text-left px-6 pl-4 mt-6">Boskovice</h2>
             <ul className="place-list mx-4 mt-4">
               <li><h3>Kulturní a Komunitní centrum Prostor</h3><p>Hradní 3, Boskovice</p></li>
+            </ul>
+            <h2 className="bg-red-200 rounded-lg text-left px-6 pl-4 mt-6">(V omezenou dobu)</h2>
+            <ul className="place-list mx-4 mt-4">
+              <li><h3>Fakulta Informatiky MU</h3><p>Botanická 68a, Brno (19.5. o 18:00-22:00)</p></li>
             </ul>
           </div>
         </div>
@@ -163,7 +146,7 @@ const HomePage = ({ data }) => {
       </div>
       <LastSignees />
       <div className="relative w-100 overflow-hidden mb-16">
-        <div className='container mx-auto bg-white lg:p-8 max-w-4xl border-b-4 border-b-red-400 lg:text-center'>
+        <div className='container mx-auto bg-white lg:p-8 max-w-4xl lg:border-b-4 lg:border-b-red-400 lg:text-center'>
             <div className="text-center p-8 px-24">
               <h1 className="">A co dál?</h1>
             </div>

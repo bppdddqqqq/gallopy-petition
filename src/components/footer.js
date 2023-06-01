@@ -13,11 +13,11 @@ const Footer = () => (
         <ScalaLogo className="overflow-hidden h-24 w-24"/>
       </div>
       <div className="flex-grow max-md:w-3/4 max-md:mx-auto">
-        <h3 className="font-bold">Kontakty:</h3>
+        <h3 className="font-bold">Kontakty</h3>
         <ul className="list-none text-md leading-6">
-          <li className="list-none ml-1"><a href="mailto:scalavescale@gmail.com">scalavescale@gmail.com</a></li>
-          <li className="list-none ml-1"><a href="mailto:kocar@kopro.team">Ondřej Kocar</a>, +420&nbsp;730&nbsp;170&nbsp;940</li>
-          <li className="list-none ml-1"><a href="mailto:daliborjelinek01@gmail.com">Dalibor Jelínek</a>, +420&nbsp;728&nbsp;947&nbsp;279</li>
+          <li className="list-none ml-0"><a href="mailto:scalavescale@gmail.com">scalavescale@gmail.com</a></li>
+          <li className="list-none ml-0"><a href="mailto:kocar@kopro.team">Ondřej Kocar</a>, +420&nbsp;730&nbsp;170&nbsp;940</li>
+          <li className="list-none ml-0"><a href="mailto:daliborjelinek01@gmail.com">Dalibor Jelínek</a>, +420&nbsp;728&nbsp;947&nbsp;279</li>
         </ul>
       </div>
       <div className="flex-grow max-md:w-3/4 max-md:mx-auto">

@@ -74,9 +74,17 @@
   th {
     @apply font-bold border-b-2 border-b-red-400 text-xl;
   }
-  td {
+  tr {
     @apply bg-red-200;
-    @apply border-b-red-300 border-b-2;
+  }
+  tr:nth-child(n+2) {
+    @apply border-t-red-300 border-t-2;
+  }
+  td, th {
+    @apply py-1 px-2;
+  }
+  th {
+    @apply min-w-[12ch] text-left;
   }
   label > input[type="text"] {
     @apply mt-2;
@@ -112,4 +120,32 @@
     left: 0;
   }
   
+}
+
+#Ruka1 {
+  opacity: calc(var(--opacity-hands, 0) / 5)
+}
+#Ruka2 {
+  opacity: calc(var(--opacity-hands, 0) / 10)
+}
+#Ruka3 {
+  opacity: calc(var(--opacity-hands, 0) / 20)
+}
+#Ruka4 {
+  opacity: calc(var(--opacity-hands, 0) / 45)
+}
+#Ruka5 {
+  opacity: calc(var(--opacity-hands, 0) / 65)
+}
+#Ruka6 {
+  opacity: calc(var(--opacity-hands, 0) / 80)
+}
+#Ruka7 {
+  opacity: calc(var(--opacity-hands, 0) / 110)
+}
+#Ruka8 {
+  opacity: calc(var(--opacity-hands, 0) / 125)
+}
+#Ruka9 {
+  opacity: calc(var(--opacity-hands, 0) / 150)
 }
