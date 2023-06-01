@@ -97,9 +97,7 @@ const HomePage = ({ data }) => {
       <div className="container mx-auto my-10">
         <h1>Kde můžu podepsat?</h1>
         <div className="max-w-3xl container mx-auto">
-          <p className='text-center mt-3'>
-           Podepsat petici můžete především u našich dobrovolníků od 17:30 do 20:30 přímo v Univerzitním kině Scala. Jestliže však nemáte možnost nás navštívit, můžete kino podpořit i na těchto místech:
-          </p>
+          <p className='text-center mt-3'></p>
         </div>
         <div className="grid grid-cols-3 max-md:grid-cols-1 gap-8 mt-8">
           <div>

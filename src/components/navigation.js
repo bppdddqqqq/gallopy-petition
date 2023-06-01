@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, StaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import { RiInstagramFill } from 'react-icons/ri';
 import navigatorJson from '../util/navigator.json'
 
@@ -28,7 +28,7 @@ class Navigation extends React.Component {
       <header
         className="sticky top-0 z-[5000] shadow-md"
       >
-        <StaticQuery query={graphql`
+     {/* <StaticQuery query={graphql`
               query MyQuery {
                 allFile(filter: {relativeDirectory: {eq: "perex"}}) {
                   nodes {
@@ -57,7 +57,7 @@ class Navigation extends React.Component {
                   return (<p>{msg}</p>)
                 })}
               </div>
-            }} />
+            }} />*/}
         <div className="flex flex-row justify-between w-full px-12 max-lg:px-8 max-md:px-2 lg:pl-8 py-2 bg-red-500 ">
           <nav id="nav" className="my-auto max-lg:ml-auto">
             <ul className="p-0 m-0 list-none">
