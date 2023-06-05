@@ -1,1 +1,1 @@
-export const SERVER_URL = 'https://pocitadlo.scalavescale.cz'
+export const SERVER_URL = 'https://online-petice.scalavescale.cz'
